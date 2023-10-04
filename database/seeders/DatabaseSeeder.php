@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Floor;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +19,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call(UserSeeder::class);
+
+        $this->call(FloorSeeder::class);
+        $this->call(DoctorDepartmentSeeder::class);
+        $this->call(RoomSeeder::class);
+        $this->call(DoctorSeeder::class);
+
+
     }
 }

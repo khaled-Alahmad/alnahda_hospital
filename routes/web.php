@@ -27,5 +27,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::resource('floors', \App\Http\Controllers\FloorController::class);
+Route::get('floors/search', [\App\Http\Controllers\FloorController::class,'search'])->name('floors.search');
+
+Route::resource('rooms', \App\Http\Controllers\RoomController::class);
+Route::get('rooms/search', [\App\Http\Controllers\RoomController::class, 'search'])->name('rooms.search');
+
+Route::resource('doctor-departments', \App\Http\Controllers\DoctorDepartmentController::class);
+Route::get('doctor-departments/search', [\App\Http\Controllers\DoctorDepartmentController::class, 'search'])->name('doctor-departments.search');
+
+Route::resource('doctors', \App\Http\Controllers\DoctorController::class);
+Route::get('doctors/search', [\App\Http\Controllers\DoctorController::class, 'search'])->name('doctors.search');
+
+
+
 
 require __DIR__.'/auth.php';
