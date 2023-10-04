@@ -45,5 +45,32 @@
             @endforeach
             </tbody>
         </table>
+        <script>
+            // استخدم Vue.js للبحث التلقائي
+            new Vue({
+                el: '#app',
+                data: {
+                    doctors: [],
+                    search: ''
+                },
+                watch: {
+                    // تتبع تغييرات الحقل بحث
+                    search: function(newSearch) {
+                        this.fetchData();
+                    }
+                },
+                methods: {
+                    fetchData: function() {
+                        axios.get('/search?search=' + this.search)
+                            .then(response => {
+                                this.doctors = response.data;
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                    }
+                }
+            });
+        </script>
     </div>
 @endsection
