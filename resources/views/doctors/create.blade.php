@@ -1,6 +1,5 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('content')
     <div class="container">
         <h1>إضافة طبيب جديد</h1>
 
@@ -11,7 +10,7 @@
                 <select class="form-control" id="user_id" name="user_id" required>
                     <option value="">اختر مستخدمًا</option>
                     @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->firstName ." ". $user->lastName}}</option>
+                    <option value="{{ $user->id }}">{{ $user->firstName ." ". $user->lastName}}</option>
                     @endforeach
                 </select>
             </div>
@@ -21,7 +20,7 @@
                 <select class="form-control" id="doctor_department_id" name="doctor_department_id" required>
                     <option value="">اختر قسمًا طبيًا</option>
                     @foreach ($doctorDepartments as $department)
-                        <option value="{{ $department->id }}">{{ $department->title }}</option>
+                    <option value="{{ $department->id }}">{{ $department->title }}</option>
                     @endforeach
                 </select>
             </div>
@@ -34,4 +33,4 @@
             <a href="{{ route('doctors.index') }}" class="btn btn-primary">العودة إلى القائمة</a>
         </form>
     </div>
-@endsection
+</x-app-layout>

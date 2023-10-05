@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
     <div class="container">
         <a href="{{ route('floors.create') }}" class="btn btn-primary">اضافة طابق</a>
         <h1>قائمة الأدوار</h1>
@@ -15,14 +13,14 @@
         </form>
         <table class="table">
             <thead>
-            <tr>
-                <th>رقم الطابق</th>
-                <th>عدد الغرف</th>
-                <th>خيارات</th>
-            </tr>
+                <tr>
+                    <th>رقم الطابق</th>
+                    <th>عدد الغرف</th>
+                    <th>خيارات</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach($floors as $floor)
+                @foreach($floors as $floor)
                 <tr>
                     <td>{{ $floor->numberOfFloor }}</td>
                     <td>{{ $floor->numberOfRooms }}</td>
@@ -32,11 +30,12 @@
                         <!-- يمكنك إضافة زر الحذف هنا -->
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
 
             </tbody>
         </table>
 
 
     </div>
-@endsection
+
+</x-app-layout>

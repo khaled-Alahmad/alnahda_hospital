@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\DoctorDepartmentController;
+use App\Http\Controllers\FloorController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,19 +32,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::resource('floors', \App\Http\Controllers\FloorController::class);
-Route::get('floors/search', [\App\Http\Controllers\FloorController::class,'search'])->name('floors.search');
+Route::resource('rooms', RoomController::class);
+Route::get('rooms/search', [RoomController::class, 'search'])->name('rooms.search');
+Route::resource('floors', FloorController::class);
+Route::get('floors/search', [FloorController::class, 'search'])->name('floors.search');
+Route::resource('doctor-departments', DoctorDepartmentController::class);
+Route::get('doctor-departments/search', [DoctorDepartmentController::class, 'search'])->name('doctor-departments.search');
+Route::resource('doctors', DoctorController::class);
+Route::get('doctors/search', [DoctorController::class, 'search'])->name('doctors.search');
+Route::resource('patients', PatientController::class);
+Route::get('patients/search', [PatientController::class, 'search'])->name('patients.search');
 
-Route::resource('rooms', \App\Http\Controllers\RoomController::class);
-Route::get('rooms/search', [\App\Http\Controllers\RoomController::class, 'search'])->name('rooms.search');
-
-Route::resource('doctor-departments', \App\Http\Controllers\DoctorDepartmentController::class);
-Route::get('doctor-departments/search', [\App\Http\Controllers\DoctorDepartmentController::class, 'search'])->name('doctor-departments.search');
-
-Route::resource('doctors', \App\Http\Controllers\DoctorController::class);
-Route::get('doctors/search', [\App\Http\Controllers\DoctorController::class, 'search'])->name('doctors.search');
-
-
-
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

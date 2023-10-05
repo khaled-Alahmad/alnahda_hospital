@@ -1,6 +1,5 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('content')
     <div class="container">
         <h1>قائمة الأقسام الطبية</h1>
 
@@ -17,15 +16,15 @@
 
         <table class="table">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">العنوان</th>
-                <th scope="col">الوصف</th>
-                <th scope="col">الإجراءات</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">العنوان</th>
+                    <th scope="col">الوصف</th>
+                    <th scope="col">الإجراءات</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach($departments as $department)
+                @foreach($departments as $department)
                 <tr>
                     <td>{{ $department->id }}</td>
                     <td>{{ $department->title }}</td>
@@ -40,8 +39,8 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
             </tbody>
         </table>
     </div>
-@endsection
+</x-app-layout>

@@ -1,6 +1,5 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('content')
     <div class="container">
         <h1>قائمة المرضى</h1>
         <a href="{{ route('patients.create') }}" class="btn btn-success mb-2">إنشاء مريض جديد</a>
@@ -12,14 +11,14 @@
         </form>
         <table class="table">
             <thead>
-            <tr>
-                <th>#</th>
-                <th>المستخدم</th>
-                <th>العمليات</th>
-            </tr>
+                <tr>
+                    <th>#</th>
+                    <th>المستخدم</th>
+                    <th>العمليات</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach ($patients as $patient)
+                @foreach ($patients as $patient)
                 <tr>
                     <td>{{ $patient->id }}</td>
                     <td>{{ $patient->user_id }}</td>
@@ -33,8 +32,8 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
             </tbody>
         </table>
     </div>
-@endsection
+</x-app-layout>

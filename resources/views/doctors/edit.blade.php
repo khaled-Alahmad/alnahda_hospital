@@ -1,6 +1,5 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('content')
     <div class="container">
         <h1>تحرير بيانات الطبيب</h1>
 
@@ -23,4 +22,4 @@
             <a href="{{ route('doctors.index') }}" class="btn btn-primary">العودة إلى القائمة</a>
         </form>
     </div>
-@endsection
+</x-app-layout>

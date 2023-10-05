@@ -1,6 +1,5 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('content')
     <div class="container">
         <h1>إضافة غرفة جديدة</h1>
 
@@ -14,7 +13,7 @@
                 <label for="floor_id">الطابق:</label>
                 <select class="form-control" id="floor_id" name="floor_id" required>
                     @foreach($floors as $floor)
-                        <option value="{{ $floor->id }}">{{ $floor->numberOfFloor }}</option>
+                    <option value="{{ $floor->id }}">{{ $floor->numberOfFloor }}</option>
                     @endforeach
                 </select>
             </div>
@@ -22,4 +21,4 @@
             <a href="{{ route('rooms.index') }}" class="btn btn-primary">العودة إلى القائمة</a>
         </form>
     </div>
-@endsection
+</x-app-layout>

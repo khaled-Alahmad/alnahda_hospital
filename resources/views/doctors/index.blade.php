@@ -1,6 +1,5 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('content')
     <div class="container">
         <h1>قائمة الأطباء</h1>
 
@@ -17,19 +16,19 @@
 
         <table class="table">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">المستخدم</th>
-                <th scope="col">القسم الطبي</th>
-                <th scope="col">التخصص</th>
-                <th scope="col">الإجراءات</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">المستخدم</th>
+                    <th scope="col">القسم الطبي</th>
+                    <th scope="col">التخصص</th>
+                    <th scope="col">الإجراءات</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach($doctors as $doctor)
+                @foreach($doctors as $doctor)
                 <tr>
                     <td>{{ $doctor->id }}</td>
-                    <td>{{ $doctor->user_id }}</td>
+                    <td>{{ $doctor->user->firstName }}</td>
                     <td>{{ $doctor->doctor_department_id }}</td>
                     <td>{{ $doctor->specialist }}</td>
                     <td>
@@ -42,7 +41,7 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
             </tbody>
         </table>
         <script>
@@ -73,4 +72,4 @@
             });
         </script>
     </div>
-@endsection
+</x-app-layout>

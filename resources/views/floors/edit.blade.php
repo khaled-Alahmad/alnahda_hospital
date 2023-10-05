@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
     <div class="container">
         <h1>تحرير الطابق</h1>
         <form method="POST" action="{{ route('floors.update', $floor->id) }}">
@@ -17,4 +15,4 @@
             <button type="submit" class="btn btn-primary">تحديث</button>
         </form>
     </div>
-@endsection
+</x-app-layout>
