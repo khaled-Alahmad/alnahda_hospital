@@ -46,6 +46,11 @@
                         {{ __('patient-rooms.index') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('illnesses.index')" :active="request()->routeIs('illnesses.index')">
+                        {{ __('illnesses.index') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

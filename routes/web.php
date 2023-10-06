@@ -3,6 +3,7 @@
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorDepartmentController;
 use App\Http\Controllers\FloorController;
+use App\Http\Controllers\IllnessController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientRoomController;
 use App\Http\Controllers\ProfileController;
@@ -44,5 +45,8 @@ Route::get('doctors/search', [DoctorController::class, 'search'])->name('doctors
 Route::resource('patients', PatientController::class);
 Route::get('patients/search', [PatientController::class, 'search'])->name('patients.search');
 Route::resource('patient-rooms', PatientRoomController::class);
-// Route::get('patients/search', [PatientRoomController::class, 'search'])->name('patients.search');
+Route::get('patients/search', [PatientRoomController::class, 'search'])->name('patients.search');
+Route::resource('illnesses', IllnessController::class);
+Route::get('/illnesses/search', [IllnessController::class, 'search'])->name('illnesses.search');
+
 require __DIR__ . '/auth.php';
