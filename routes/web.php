@@ -7,6 +7,7 @@ use App\Http\Controllers\DoctorDepartmentController;
 use App\Http\Controllers\FloorController;
 use App\Http\Controllers\IllnessController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\OperationController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientRoomController;
 use App\Http\Controllers\PreviewController;
@@ -64,5 +65,6 @@ Route::resource('medicines', MedicineController::class);
 Route::get('/medicines/search', [MedicineController::class, 'search'])->name('medicines.search');
 Route::resource('preview-details', PreviewDetailsController::class);
 Route::get('/preview-details/search', [PreviewDetailsController::class, 'search'])->name('preview-details.search');
-
+Route::resource('operations', OperationController::class);
+Route::get('/operations/search', [OperationController::class, 'search'])->name('operations.search');
 require __DIR__ . '/auth.php';
