@@ -5,45 +5,45 @@
 
         <a href="{{ route('previews.create') }}" class="btn btn-success mb-3">إضافة معاينة جديدة</a>
         <form action="{{ route('previews.search') }}" method="GET">
-    @csrf
+            @csrf
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="patient_id">المريض:</label>
-                <select class="form-control" id="patient_id" name="patient_id" required>
-                    @foreach($patients as $patient)
-                    <option value="{{ $patient->id }}">{{ $patient->user->firstName }}</option>
-                    @endforeach
-                </select>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="patient_id">المريض:</label>
+                        <select class="form-control" id="patient_id" name="patient_id" required>
+                            @foreach($patients as $patient)
+                            <option value="{{ $patient->id }}">{{ $patient->user->firstName }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="doctor_id">الطبيب:</label>
+                        <select class="form-control" id="doctor_id" name="doctor_id" required>
+                            @foreach($doctors as $doctor)
+                            <option value="{{ $doctor->id }}">{{ $doctor->user->firstName }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="illness_id">نوع المرض:</label>
+                        <select class="form-control" id="illness_id" name="illness_id" required>
+                            @foreach($illnesses as $illness)
+                            <option value="{{ $illness->id }}">{{ $illness->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="doctor_id">الطبيب:</label>
-                <select class="form-control" id="doctor_id" name="doctor_id" required>
-                    @foreach($doctors as $doctor)
-                    <option value="{{ $doctor->id }}">{{ $doctor->user->firstName }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="illness_id">نوع المرض:</label>
-                <select class="form-control" id="illness_id" name="illness_id" required>
-                    @foreach($illnesses as $illness)
-                    <option value="{{ $illness->id }}">{{ $illness->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary">بحث</button>
-</form>
+            <button type="submit" class="btn btn-primary">بحث</button>
+        </form>
 
 
 
@@ -54,6 +54,8 @@
                     <th scope="col">#</th>
                     <th scope="col">اسم المريض</th>
                     <th scope="col">اسم الطبيب</th>
+                    <th scope="col">المرض</th>
+
                     <th scope="col">نوع المعاينة</th>
                     <th scope="col">التاريخ والوقت</th>
                     <th scope="col">الإجراءات</th>
@@ -65,6 +67,8 @@
                     <th scope="row">{{ $preview->id }}</th>
                     <td>{{ $preview->patient->user->firstName. ' '.$preview->patient->user->firstName }}</td>
                     <td>{{ $preview->doctor->user->firstName. ' '.$preview->doctor->user->firstName }}</td>
+                    <td>{{ $preview->illness->name }}</td>
+
                     <td>{{ $preview->status }}</td>
                     <td>{{ $preview->preview_datetime }}</td>
                     <td>

@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorDepartmentController;
 use App\Http\Controllers\FloorController;
 use App\Http\Controllers\IllnessController;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientRoomController;
 use App\Http\Controllers\PreviewController;
@@ -52,5 +55,10 @@ Route::get('/illnesses/search', [IllnessController::class, 'search'])->name('ill
 Route::resource('previews', PreviewController::class);
 
 Route::get('/previews/search', [PreviewController::class, 'search'])->name('previews.search');
-
+Route::resource('categories', CategoryController::class);
+Route::get('categories/search', [CategoryController::class, 'search'])->name('categories.search');
+Route::resource('brands', BrandController::class);
+Route::get('/brands/search', [BrandController::class, 'search'])->name('brands.search');
+Route::resource('medicines', MedicineController::class);
+Route::get('/medicines/search', [MedicineController::class, 'search'])->name('medicines.search');
 require __DIR__ . '/auth.php';
