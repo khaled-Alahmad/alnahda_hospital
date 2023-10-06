@@ -6,6 +6,7 @@ use App\Http\Controllers\FloorController;
 use App\Http\Controllers\IllnessController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientRoomController;
+use App\Http\Controllers\PreviewController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
@@ -48,5 +49,8 @@ Route::resource('patient-rooms', PatientRoomController::class);
 Route::get('patients/search', [PatientRoomController::class, 'search'])->name('patients.search');
 Route::resource('illnesses', IllnessController::class);
 Route::get('/illnesses/search', [IllnessController::class, 'search'])->name('illnesses.search');
+Route::resource('previews', PreviewController::class);
+
+Route::get('/previews/search', [PreviewController::class, 'search'])->name('previews.search');
 
 require __DIR__ . '/auth.php';
