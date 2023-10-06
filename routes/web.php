@@ -4,6 +4,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorDepartmentController;
 use App\Http\Controllers\FloorController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PatientRoomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
@@ -42,5 +43,6 @@ Route::resource('doctors', DoctorController::class);
 Route::get('doctors/search', [DoctorController::class, 'search'])->name('doctors.search');
 Route::resource('patients', PatientController::class);
 Route::get('patients/search', [PatientController::class, 'search'])->name('patients.search');
-
+Route::resource('patient-rooms', PatientRoomController::class);
+// Route::get('patients/search', [PatientRoomController::class, 'search'])->name('patients.search');
 require __DIR__ . '/auth.php';

@@ -13,4 +13,8 @@ class Room extends Model
     {
         return $this->belongsTo(Floor::class);
     }
+    public function patientRoom()
+    {
+        return $this->hasMany(PatientRoom::class);
+    }
 }
