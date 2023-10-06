@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Preview extends Model
 {
     use HasFactory;
+    protected  $guarded = ['id'];
+
     public function patient()
     {
         return $this->belongsTo(Patient::class);
@@ -19,5 +21,9 @@ class Preview extends Model
     public function illness()
     {
         return $this->belongsTo(Illness::class);
+    }
+    public function preview_details()
+    {
+        return $this->hasMany(PreviewDetails::class);
     }
 }

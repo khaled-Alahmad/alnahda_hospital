@@ -10,6 +10,7 @@ use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientRoomController;
 use App\Http\Controllers\PreviewController;
+use App\Http\Controllers\PreviewDetailsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
@@ -61,4 +62,7 @@ Route::resource('brands', BrandController::class);
 Route::get('/brands/search', [BrandController::class, 'search'])->name('brands.search');
 Route::resource('medicines', MedicineController::class);
 Route::get('/medicines/search', [MedicineController::class, 'search'])->name('medicines.search');
+Route::resource('preview-details', PreviewDetailsController::class);
+Route::get('/preview-details/search', [PreviewDetailsController::class, 'search'])->name('preview-details.search');
+
 require __DIR__ . '/auth.php';

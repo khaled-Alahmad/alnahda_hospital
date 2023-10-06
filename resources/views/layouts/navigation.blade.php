@@ -71,6 +71,11 @@
                         {{ __('medicines.index') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('preview-details.index')" :active="request()->routeIs('preview-details.index')">
+                        {{ __('preview-details.index') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
