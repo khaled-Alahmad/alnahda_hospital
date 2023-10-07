@@ -81,6 +81,11 @@
                         {{ __('operations.index') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('operation-doctors.index')" :active="request()->routeIs('operation-doctors.index')">
+                        {{ __('operation-doctors.index') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

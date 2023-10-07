@@ -21,4 +21,8 @@ class Doctor extends Model
     {
         return $this->hasMany(Preview::class);
     }
+    public function operationDoctor()
+    {
+        return $this->hasMany(OperationDoctor::class);
+    }
 }
