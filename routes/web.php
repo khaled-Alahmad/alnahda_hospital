@@ -16,6 +16,7 @@ use App\Http\Controllers\PreviewDetailsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -72,3 +74,6 @@ Route::resource('operation-doctors', OperationDoctorController::class);
 Route::get('operation-doctors/search', [OperationDoctorController::class, 'search'])->name('operation-doctors.search');
 
 require __DIR__ . '/auth.php';
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

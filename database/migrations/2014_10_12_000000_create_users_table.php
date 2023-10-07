@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // $userImage =;
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('firstName');
@@ -22,6 +24,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('gender', ['ذكر', 'انثى']);
+            $table->string('image')->nullable()->default(asset('images/user.png'));
+
             $table->rememberToken();
             $table->timestamps();
         });

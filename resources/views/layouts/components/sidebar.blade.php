@@ -233,7 +233,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#preview-details" aria-expanded="false" aria-controls="form-elements">
                     <i class="icon-columns menu-icon"></i>
-                    <span class="menu-title"> الأدوية</span>
+                    <span class="menu-title"> تفاصيل المعاينة</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="preview-details">
