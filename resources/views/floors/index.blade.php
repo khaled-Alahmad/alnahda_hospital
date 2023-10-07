@@ -1,6 +1,5 @@
 <x-app-layout>
     <div class="container">
-        <a href="{{ route('floors.create') }}" class="btn btn-primary">اضافة طابق</a>
         <h1>قائمة الأدوار</h1>
 
         <form method="GET" action="{{ route('floors.search') }}" class="form-inline">

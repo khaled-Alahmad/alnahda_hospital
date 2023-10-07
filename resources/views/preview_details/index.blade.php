@@ -3,8 +3,7 @@
     <div class="container">
         <h1>عرض تفاصيل المعاينة</h1>
 
-        <!-- زر الإضافة -->
-        <a href="{{ route('preview-details.create') }}" class="btn btn-success mb-3">إضافة تفصيل معاينة جديد</a>
+
 
         <!-- نموذج البحث -->
         <form action="{{ route('preview-details.search') }}" method="GET" class="mb-3">

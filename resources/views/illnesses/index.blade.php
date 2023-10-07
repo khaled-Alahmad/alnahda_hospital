@@ -4,7 +4,6 @@
 
         <h1>قائمة الأمراض</h1>
 
-        <a href="{{ route('illnesses.create') }}" class="btn btn-success mb-3">إضافة مرض جديد</a>
 
         <form action="{{ route('illnesses.search') }}" method="GET" class="mb-3">
             <div class="input-group">

@@ -3,7 +3,6 @@
     <div class="container">
         <h1>قائمة الحجوزات</h1>
 
-        <a href="{{ route('patient-rooms.create') }}" class="btn btn-success mb-3">إضافة حجز جديد</a>
 
         <table class="table">
             <thead>

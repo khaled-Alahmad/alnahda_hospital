@@ -3,7 +3,6 @@
     <div class="container">
         <h1>قائمة الأطباء</h1>
 
-        <a href="{{ route('doctors.create') }}" class="btn btn-success mb-3">إضافة طبيب جديد</a>
 
         <form action="{{ route('doctors.search') }}" method="GET" class="mb-3">
             <div class="input-group">

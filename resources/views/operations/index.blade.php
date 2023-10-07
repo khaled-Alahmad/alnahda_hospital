@@ -1,7 +1,6 @@
 <x-app-layout>
     <div class="container">
         <h1>قائمة العمليات</h1>
-        <a href="{{ route('operations.create') }}" class="btn btn-success mb-3">إضافة عملية جديد</a>
 
         <!-- نموذج البحث -->
         <form action="{{ route('operations.search') }}" method="GET">

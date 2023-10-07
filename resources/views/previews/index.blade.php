@@ -3,7 +3,6 @@
     <div class="container">
         <h1>قائمة المعاينات</h1>
 
-        <a href="{{ route('previews.create') }}" class="btn btn-success mb-3">إضافة معاينة جديدة</a>
         <form action="{{ route('previews.search') }}" method="GET">
             @csrf
 

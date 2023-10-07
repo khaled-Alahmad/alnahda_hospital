@@ -1,45 +1,72 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ar">
 
 <head>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
-    <script src="{{ asset('s/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/moment.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
-
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>لوحة تحكم | مستشفى النهضة الجامعي </title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/select.dataTables.min.css') }}">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/js/app.js', 'resources/css/app.scss'])
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+<body>
+    <div class="container-scroller">
+        @include('layouts.components.navbar')
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            @include('layouts.components.settings-panel')
+            <!-- partial -->
+            @include('layouts.components.sidebar')
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    {{ $slot }}
 
-        @include('layouts.navigation')
-
-        <!-- Page Heading -->
-        @if (isset($header))
-        <header class="bg-white dark:bg-gray-800 shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                @include('layouts.components.footer')
+                <!-- partial -->
             </div>
-        </header>
-        @endif
-
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
     </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('js/dataTables.select.min.js') }}"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{ asset('js/off-canvas.js') }}"></script>
+    <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('js/template.js') }}"></script>
+    <script src="{{ asset('js/settings.js') }}"></script>
+    <script src="{{ asset('js/todolist.js') }}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
+
 </body>
 
 </html>

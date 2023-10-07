@@ -8,7 +8,6 @@
             {{ session('success') }}
         </div>
         @endif
-        <a href="{{ route('categories.create') }}" class="btn btn-success mb-2">إنشاء فئة جديدة</a>
 
         <div class="row mb-3">
             <div class="col-md-12">

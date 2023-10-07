@@ -3,9 +3,7 @@
     <div class="container">
         <h1>قائمة الأدوية</h1>
 
-        <div class="mb-3">
-            <a href="{{ route('medicines.create') }}" class="btn btn-primary">إضافة دواء جديد</a>
-        </div>
+
 
         <form action="{{ route('medicines.search') }}" method="GET" class="mb-3">
             @csrf
