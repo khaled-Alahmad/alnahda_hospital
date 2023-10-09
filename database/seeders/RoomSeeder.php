@@ -23,7 +23,6 @@ class RoomSeeder extends Seeder
                 'roomSize' => 30.25,
                 'floor_id' => 2,
             ],
-            // يمكنك إضافة المزيد من البيانات هنا
         ];
 
         // إضافة البيانات إلى جدول الغرف
