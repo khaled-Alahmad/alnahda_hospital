@@ -3,7 +3,6 @@
     <div class="container">
         <h1>قائمة الغرف</h1>
 
-        <a href="{{ route('rooms.create') }}" class="btn btn-success mb-3">إضافة غرفة جديدة</a>
 
         <table class="table">
             <thead>

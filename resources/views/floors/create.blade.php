@@ -1,4 +1,4 @@
-</x-app-layout>
+<x-app-layout>
 
 <div class="container">
     <h1>إنشاء طابق جديد</h1>

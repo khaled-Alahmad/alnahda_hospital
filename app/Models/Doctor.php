@@ -17,4 +17,12 @@ class Doctor extends Model
     {
         return $this->belongsTo(DoctorDepartment::class);
     }
+    public function preview()
+    {
+        return $this->hasMany(Preview::class);
+    }
+    public function operationDoctor()
+    {
+        return $this->hasMany(OperationDoctor::class);
+    }
 }

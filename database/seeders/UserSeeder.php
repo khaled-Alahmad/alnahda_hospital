@@ -19,6 +19,9 @@ class UserSeeder extends Seeder
                 'lastName' => 'alahmad',
                 'father' => 'ramazan',
                 'mother' => 'test',
+                'age' => 22,
+                'role_id' => 2,
+                'gender' => 'ذكر',
                 'phone' => '00905394806788',
                 'address' => 'azaz',
                 'email' => 'patient1@gmail.com',
@@ -31,6 +34,10 @@ class UserSeeder extends Seeder
                 'lastName' => 'alahmad',
                 'father' => 'ramazan',
                 'mother' => 'test',
+                'age' => 22,
+                'role_id' => 2,
+
+                'gender' => 'انثى',
                 'phone' => '00905394806788',
                 'address' => 'azaz',
                 'email' => 'patient2@gmail.com',
@@ -41,6 +48,9 @@ class UserSeeder extends Seeder
                 'father' => 'ramazan',
                 'mother' => 'test',
                 'phone' => '00905394806788',
+                'age' => 22,
+                'role_id' => 3,
+
                 'address' => 'azaz',
                 'email' => 'doctor1@gmail.com',
                 'password' => bcrypt('12345678'),
@@ -52,6 +62,9 @@ class UserSeeder extends Seeder
                 'father' => 'ramazan',
                 'mother' => 'test',
                 'phone' => '00905394806788',
+                'age' => 22,
+                'role_id' => 3,
+
                 'address' => 'azaz',
                 'email' => 'doctor2@gmail.com',
                 'password' => bcrypt('12346678'),
@@ -61,6 +74,8 @@ class UserSeeder extends Seeder
                 'firstName' => 'admin',
                 'lastName' => 'alahmad',
                 'father' => 'ramazan',
+                'age' => 22,
+                'role_id' => 1,
                 'mother' => 'test',
                 'phone' => '00905394806788',
                 'address' => 'azaz',
@@ -69,10 +84,8 @@ class UserSeeder extends Seeder
 
 
             ],
-            // يمكنك إضافة المزيد من المستخدمين هنا
         ];
 
-        // إضافة بيانات المستخدمين إلى جدول المستخدمين
         foreach ($userData as $data) {
             User::create($data);
         }

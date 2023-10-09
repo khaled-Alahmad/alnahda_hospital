@@ -13,4 +13,12 @@ class Patient extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function patientRoom()
+    {
+        return $this->hasMany(PatientRoom::class);
+    }
+    public function preview()
+    {
+        return $this->hasMany(Preview::class);
+    }
 }

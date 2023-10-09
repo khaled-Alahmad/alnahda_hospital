@@ -3,7 +3,6 @@
     <div class="container">
         <h1>قائمة الأقسام الطبية</h1>
 
-        <a href="{{ route('doctor-departments.create') }}" class="btn btn-success mb-3">إضافة قسم طبي جديد</a>
 
         <form action="{{ route('doctor-departments.search') }}" method="GET" class="mb-3">
             <div class="input-group">

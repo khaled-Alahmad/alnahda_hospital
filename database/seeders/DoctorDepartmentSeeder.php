@@ -13,7 +13,6 @@ class DoctorDepartmentSeeder extends Seeder
      */
     public function run(): void
     {
-        // قائمة بالبيانات التي ترغب في إضافتها إلى جدول الأقسام الطبية
         $departments = [
             [
                 'title' => 'قسم الأمراض الباطنية',
@@ -23,10 +22,8 @@ class DoctorDepartmentSeeder extends Seeder
                 'title' => 'قسم جراحة القلب',
                 'description' => 'وصف قسم جراحة القلب',
             ],
-            // يمكنك إضافة المزيد من الأقسام هنا
         ];
 
-        // إضافة البيانات إلى جدول الأقسام الطبية
         foreach ($departments as $department) {
             DoctorDepartment::create($department);
         }

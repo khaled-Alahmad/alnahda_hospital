@@ -20,10 +20,8 @@ class PatientSeeder extends Seeder
             [
                 'user_id' => 2,
             ],
-            // يمكنك إضافة المزيد من البيانات هنا
         ];
 
-        // حفظ البيانات في قاعدة البيانات
         foreach ($patientsData as $data) {
             Patient::create($data);
         }
