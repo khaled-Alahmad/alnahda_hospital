@@ -1,0 +1,19 @@
+Subject: [PATCH] update project
+---
+Index: database/seeders/UserSeeder.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/database/seeders/UserSeeder.php b/database/seeders/UserSeeder.php
+--- a/database/seeders/UserSeeder.php	(revision fd7cfa512da62845bcb7c6c79196c967326fd538)
++++ b/database/seeders/UserSeeder.php	(revision 76c7f2ebfafbbf874abbf7c5f93fbdede853c7ac)
+@@ -54,7 +54,7 @@
+                 'phone' => '00905394806788',
+                 'address' => 'azaz',
+                 'email' => 'doctor2@gmail.com',
+-                'password' => bcrypt('12345678'),
++                'password' => bcrypt('12346678'),
+ 
+ 
+             ], [
