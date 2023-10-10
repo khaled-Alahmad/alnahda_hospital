@@ -73,10 +73,9 @@ class FloorController extends Controller
         $searchTerm = $request->input('search');
 
         // قم بتنفيذ عملية البحث بناءً على متطلبات تطبيقك
-        $floors = Floor::where('numberOfFloor', 'LIKE', '%' . $searchTerm . '%')
-            ->orWhere('numberOfRooms', 'LIKE', '%' . $searchTerm . '%')
+        $floors = Floor::where('numberOfFloor', 'like', '%' . $searchTerm . '%')
             ->get();
-
+        dd($floors);
         return view('floors.index', compact('floors'));
     }
 }

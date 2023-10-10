@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+use App\Models\DoctorDepartment;
+use App\Models\User;
 
 class DoctorController extends Controller
 {
@@ -15,7 +17,9 @@ class DoctorController extends Controller
 
     public function create()
     {
-        return view('doctors.create');
+        $users = User::whereDoesntHave('doctors')->whereDoesntHave('patients')->where('role_id', '<>', 1)->get();
+        $doctorDepartments  = DoctorDepartment::all();
+        return view('doctors.create', compact('users', 'doctorDepartments'));
     }
 
     public function store(Request $request)

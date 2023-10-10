@@ -33,11 +33,33 @@
                     </td>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
 
-
     </div>
+    <script>
+        $(document).ready(function() {
+            // استجابة لتغييرات في حقل البحث
+            $('#search').on('keyup', function() {
+                var searchTerm = $('#search').val();
+                $.ajax({
+                    url: "{{ route('floors.search') }}",
+                    type: 'GET',
+                    data: {
+                        searchTerm: $('#search').val()
+                    },
+                    success: function(response) {
+                        // عرض النتائج في الجدول
+                        $('#data-table tbody').html(response);
+                    },
+                    error: function(xhr) {
+                        // معالجة الأخطاء إذا كان هناك خطأ في الطلب
+                        $('#data-table tbody').html('<tr><td colspan="3">حدث خطأ أثناء البحث.</td></tr>');
+                    }
+                });
+            });
+        });
+    </script>
+
 
 </x-app-layout>

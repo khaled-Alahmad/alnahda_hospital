@@ -1,5 +1,3 @@
-<!-- ملف: resources/views/users/show.blade.php -->
-
 <x-app-layout>
 
     <div class="container">
@@ -10,15 +8,15 @@
                 <td>{{ $user->firstName }}</td>
             </tr>
             <tr>
-                <th>اسم العائلة</th>
+                <th>الاسم الأخير</th>
                 <td>{{ $user->lastName }}</td>
             </tr>
             <tr>
-                <th>اسم الأب</th>
+                <th>الأب</th>
                 <td>{{ $user->father }}</td>
             </tr>
             <tr>
-                <th>اسم الأم</th>
+                <th>الأم</th>
                 <td>{{ $user->mother }}</td>
             </tr>
             <tr>
@@ -26,7 +24,7 @@
                 <td>{{ $user->age }}</td>
             </tr>
             <tr>
-                <th>رقم الهاتف</th>
+                <th>الهاتف</th>
                 <td>{{ $user->phone }}</td>
             </tr>
             <tr>
@@ -38,10 +36,15 @@
                 <td>{{ $user->email }}</td>
             </tr>
             <tr>
+                <th> الصلاحية</th>
+                <td>{{ $user->role->role }}</td>
+            </tr>
+            <tr>
                 <th>الجنس</th>
                 <td>{{ $user->gender }}</td>
             </tr>
         </table>
-        <a href="{{ route('users.index') }}" class="btn btn-secondary">رجوع</a>
+        <a href="{{ route('users.index') }}" class="btn btn-secondary">عودة</a>
     </div>
+
 </x-app-layout>

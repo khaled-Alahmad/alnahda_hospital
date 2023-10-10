@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use App\Models\User;
 
 class PatientController extends Controller
 {
@@ -15,7 +16,9 @@ class PatientController extends Controller
 
     public function create()
     {
-        return view('patients.create');
+        $users = User::whereDoesntHave('doctors')->whereDoesntHave('patients')->get();
+        dd($users);
+        return view('patients.create', compact('users'));
     }
 
     public function store(Request $request)

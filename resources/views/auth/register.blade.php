@@ -1,52 +1,64 @@
 <x-guest-layout>
+    <h4>انشاء حساب</h4>
     <form method="POST" action="{{ route('register') }}">
         @csrf
-
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <div class="form-group">
+            <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="الاسم الأول..." value="{{ old('firstName', $user->firstName ?? '') }}" name="firstName">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="الأسم الأخير..." value="{{ old('lastName', $user->lastName ?? '') }}" name="lastName">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="اسم الأب..." value="{{ old('father', $user->father ?? '') }}" name="father">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="اسم الأم..." value="{{ old('mother', $user->mother ?? '') }}" name="mother">
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="form-group">
+            <input type="number" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="عمرك..." name="age" value="{{ old('age', $user->age ?? '') }}">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="رقم هاتفك..." name="phone" value="{{ old('phone', $user->phone ?? '') }}">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="عنوانك..." name="address" value="{{ old('address', $user->address ?? '') }}">
+        </div>
+        <div class="form-group">
+
+            <label for="gender">الجنس</label>
+            <select value="{{ old('gender', $user->gender ?? '') }}" class="js-example-basic-single w-100" id="gender" name="gender">
+                <option value="ذكر">ذكر</option>
+                <option value="انثى">أنثى</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="البريد..." name="email" value="{{ old('email', $user->email ?? '') }}">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="كلمة السر..." name="password">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="تأكيد كلمة السر.." name="password_confirmation">
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="mb-4">
+            <div class="form-check">
+                <label class="form-check-label text-muted">
+                    <input type="checkbox" class="form-check-input">
+                    أنا موافق على الشروط والاحكام.
+                </label>
+            </div>
         </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        <div class="mt-3">
+            <!-- <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a> -->
+            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">انشاء حساب</button>
         </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div class="text-center mt-4 font-weight-light">
+            هل لديك حساب بالفعل؟ <a href="{{ route('login') }}" class="text-primary">تسجيل الدخول</a>
         </div>
     </form>
+
+
 </x-guest-layout>
