@@ -22,20 +22,24 @@ class PreviewController extends Controller
 
     public function create()
     {
-        return view('previews.create');
+        $illnesses = Illness::all();
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+
+        return view('previews.create',compact( 'illnesses', 'doctors', 'patients'));
     }
 
     public function store(Request $request)
     {
+
         $request->validate([
             'patient_id' => 'required',
             'doctor_id' => 'required',
             'illness_id' => 'required',
             'type' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
-            'date' => 'required|date',
-            'time' => 'required',
+            'preview_datetime' => 'required',
         ]);
-
+        
         // Create a new preview
         Preview::create($request->all());
 
@@ -62,8 +66,7 @@ class PreviewController extends Controller
             'doctor_id' => 'required',
             'illness_id' => 'required',
             'type' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
-            'date' => 'required|date',
-            'time' => 'required',
+            'preview_datetime' => 'required|date',
         ]);
 
         // Update the preview

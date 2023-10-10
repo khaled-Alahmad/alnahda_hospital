@@ -11271,15 +11271,15 @@ fieldset:disabled .wizard > .actions a,
 }
 
 .btn-danger {
-  color: #fff;
-  background-color: #FF4747;
-  border-color: #FF4747;
+  color: #fff  !important;
+  background-color: #FF4747 !important;
+  border-color: #FF4747  !important;
 }
 
 .btn-danger:hover {
-  color: #fff;
-  background-color: #ff2121;
-  border-color: #ff1414;
+  color: #fff  !important;
+  background-color: #ff2121  !important;
+  border-color: #ff1414  !important;
 }
 
 .btn-danger:focus, .btn-danger.focus {

@@ -1,20 +1,10 @@
 <x-app-layout>
-
     <div class="container">
-
         <h1>قائمة الأمراض</h1>
 
+        <input type="text" class="form-control" name="search" id="search-illness" placeholder="البحث عن مرض">
 
-        <form action="{{ route('illnesses.search') }}" method="GET" class="mb-3">
-            <div class="input-group">
-                <input type="text" class="form-control" name="search" placeholder="البحث عن مرض">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit">بحث</button>
-                </div>
-            </div>
-        </form>
-
-        <table class="table">
+        <table class="table ">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -22,7 +12,7 @@
                     <th scope="col">الإجراءات</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="search-results">
                 @foreach($illnesses as $illness)
                 <tr>
                     <td>{{ $illness->id }}</td>
@@ -33,7 +23,7 @@
                         <form action="{{ route('illnesses.destroy', $illness->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا المرض؟')">حذف</button>
+                            <button type="submit" class="btn btn-danger" i onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا المرض؟')">حذف</button>
                         </form>
                     </td>
                 </tr>
@@ -41,4 +31,6 @@
             </tbody>
         </table>
     </div>
+
+
 </x-app-layout>

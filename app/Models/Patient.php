@@ -17,7 +17,7 @@ class Patient extends Model
     {
         return $this->hasMany(PatientRoom::class);
     }
-    public function preview()
+    public function previews()
     {
         return $this->hasMany(Preview::class);
     }

@@ -75,7 +75,6 @@ class FloorController extends Controller
         // قم بتنفيذ عملية البحث بناءً على متطلبات تطبيقك
         $floors = Floor::where('numberOfFloor', 'like', '%' . $searchTerm . '%')
             ->get();
-        dd($floors);
         return view('floors.index', compact('floors'));
     }
 }

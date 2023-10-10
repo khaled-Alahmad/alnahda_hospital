@@ -142,4 +142,7 @@ class UserController extends Controller
 
         return redirect('/users')->with('success', 'User has been deleted');
     }
+    public  function  search(){
+        return view('users.index');
+    }
 }
