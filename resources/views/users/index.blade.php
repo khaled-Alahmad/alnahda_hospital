@@ -31,13 +31,14 @@
                     <td>{{ $user->role->role }}</td>
 
                     <td>
-                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-info">عرض</a>
-                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">تعديل</a>
+                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary">عرض</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">تعديل</a>
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا المستخدم؟')">حذف</button>
-                        </form>                    </td>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

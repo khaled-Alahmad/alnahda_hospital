@@ -7,7 +7,6 @@
         <form action="{{ route('preview-details.search') }}" method="GET" class="mb-3">
             <div class="input-group">
                 <input type="text" name="preview_id" id="preview_id" class="form-control" placeholder="رقم المعاينة...">
-                <input type="text" class="form-control" name="search" >
                 <input type="text" name="medicine_id" id="medicine_id" class="form-control" placeholder="رقم الدواء...">
 
 
@@ -23,7 +22,7 @@
             <thead>
                 <tr>
                     <th scope="">رقم المعاينة</th>
-                    <th scope="">رقم الدواء</th>
+                    <th scope=""> الدواء</th>
                     <th scope="">تاريخ الإنشاء</th>
                     <th scope=""> الاجرائيات</th>
 
@@ -33,7 +32,7 @@
                 @foreach ($previewDetails as $detail)
                 <tr>
                     <td>{{ $detail->preview_id }}</td>
-                    <td>{{ $detail->medicine_id }}</td>
+                    <td>{{ $detail->medicine->name }}</td>
                     <td>{{ $detail->created_at }}</td>
                     <td>
                         <a href="{{ route('preview-details.show', $detail->id) }}" class="btn btn-primary">عرض</a>

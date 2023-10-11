@@ -33,6 +33,7 @@ class MedicineController extends Controller
         $medicine->brand_id = $request->input('brand_id');
         $medicine->price = $request->input('price');
         $medicine->save();
+        notify()->success('تمت إضافة الدواء بنجاح');
 
         return redirect()->route('medicines.index')
             ->with('success', 'تمت إضافة الدواء بنجاح');
@@ -63,6 +64,7 @@ class MedicineController extends Controller
         $medicine->brand_id = $request->input('brand_id');
         $medicine->price = $request->input('price');
         $medicine->save();
+        notify()->success('تم تحديث معلومات الدواء بنجاح');
 
         return redirect()->route('medicines.index')
             ->with('success', 'تم تحديث معلومات الدواء بنجاح');
@@ -73,6 +75,7 @@ class MedicineController extends Controller
         // حذف الدواء
         $medicine = Medicine::find($id);
         $medicine->delete();
+        notify()->success('تم حذف الدواء بنجاح');
 
         return redirect()->route('medicines.index')
             ->with('success', 'تم حذف الدواء بنجاح');
@@ -80,7 +83,6 @@ class MedicineController extends Controller
 
     public function search(Request $request)
     {
-        // البحث عن الأدوية استنادًا إلى اسم الدواء
         $searchTerm = $request->input('search');
         $medicines = Medicine::where('name', 'like', '%' . $searchTerm . '%')->get();
 

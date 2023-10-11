@@ -4,10 +4,10 @@
         <form action="{{ route('operation-doctors.store') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="doctor_id">رقم الطبيب:</label>
+                <label for="doctor_id"> الطبيب:</label>
                 <select class="form-control" id="doctor_id" name="doctor_id" required>
                     @foreach($doctors as $doctor)
-                    <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                    <option value="{{ $doctor->id }}">{{ $doctor->user->firstName.' '.$doctor->user->lastName }}</option>
                     @endforeach
                 </select>
             </div>
@@ -15,7 +15,7 @@
                 <label for="operation_id">رقم العملية:</label>
                 <select class="form-control" id="operation_id" name="operation_id" required>
                     @foreach($operations as $operation)
-                    <option value="{{ $operation->id }}">{{ $operation->name }}</option>
+                    <option value="{{ $operation->id }}">{{ $operation->id }}</option>
                     @endforeach
                 </select>
             </div>

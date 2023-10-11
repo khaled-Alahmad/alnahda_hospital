@@ -30,6 +30,7 @@ class PreviewDetailsController extends Controller
             'preview_id' => $request->input('preview_id'),
             'medicine_id' => $request->input('medicine_id'),
         ]);
+        notify()->success('تمت إضافة التفاصيل بنجاح');
 
         return redirect()->route('preview-details.index')
             ->with('success', 'تمت إضافة التفاصيل بنجاح');
@@ -56,6 +57,7 @@ class PreviewDetailsController extends Controller
             'preview_id' => $request->input('preview_id'),
             'medicine_id' => $request->input('medicine_id'),
         ]);
+        notify()->success('تم تحديث التفاصيل بنجاح');
 
         return redirect()->route('preview-details.index')
             ->with('success', 'تم تحديث التفاصيل بنجاح');
@@ -66,6 +68,7 @@ class PreviewDetailsController extends Controller
         // حذف السجل من قاعدة البيانات
         $previewDetail = PreviewDetails::find($id);
         $previewDetail->delete();
+        notify()->success('تم حذف التفاصيل بنجاح');
 
         return redirect()->route('preview-details.index')
             ->with('success', 'تم حذف التفاصيل بنجاح');

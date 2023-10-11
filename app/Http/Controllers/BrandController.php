@@ -26,6 +26,7 @@ class BrandController extends Controller
         ]);
 
         Brand::create($request->all());
+        notify()->success('تمت إضافة العلامة التجارية بنجاح');
 
         return redirect()->route('brands.index')
             ->with('success', 'تمت إضافة العلامة التجارية بنجاح');
@@ -52,6 +53,7 @@ class BrandController extends Controller
 
         $brand = Brand::find($id);
         $brand->update($request->all());
+        notify()->success('تمت تحديث العلامة التجارية بنجاح');
 
         return redirect()->route('brands.index')
             ->with('success', 'تم تحديث العلامة التجارية بنجاح');
@@ -61,6 +63,7 @@ class BrandController extends Controller
     {
         $brand = Brand::find($id);
         $brand->delete();
+        notify()->success('تمت حذف العلامة التجارية بنجاح');
 
         return redirect()->route('brands.index')
             ->with('success', 'تم حذف العلامة التجارية بنجاح');

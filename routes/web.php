@@ -41,8 +41,6 @@ Route::get('/', function () {
 //
 //    return view('previews.create',compact( 'illnesses', 'doctors', 'patients'));
 //});
-Route::resource('users', UserController::class);
-Route::get('users/search', [UserController::class, 'search'])->name('users.search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -55,6 +53,16 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('users_create', [UserController::class, 'create'])->name('users.create');
+    Route::get('users_{id}_edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::get('users_{id}', [UserController::class, 'show'])->name('users.show');
+    Route::post('users', [UserController::class, 'store'])->name('users.store');
+    Route::put('users_{id}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('users_{id}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('users_search', [UserController::class, 'search'])->name('users.search');
+
+
     Route::get('rooms', [RoomController::class, 'index'])->name('rooms.index');
     Route::get('rooms_create', [RoomController::class, 'create'])->name('rooms.create');
     Route::get('rooms_{id}_edit', [RoomController::class, 'edit'])->name('rooms.edit');
@@ -132,7 +140,6 @@ Route::middleware('auth')->group(function () {
     Route::get('categories_create', [CategoryController::class, 'create'])->name('categories.create');
     Route::get('categories_{id}_edit', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::get('categories_{id}', [CategoryController::class, 'show'])->name('categories.show');
-
     Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::put('categories_{id}', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('categories_{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
@@ -140,8 +147,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('brands', [BrandController::class, 'index'])->name('brands.index');
     Route::get('brands_create', [BrandController::class, 'create'])->name('brands.create');
-    Route::get('brands_{id}', [BrandController::class, 'show'])->name('brands.show');
     Route::get('brands_{id}_edit', [BrandController::class, 'edit'])->name('brands.edit');
+    Route::get('brands_{id}', [BrandController::class, 'show'])->name('brands.show');
     Route::post('brands', [BrandController::class, 'store'])->name('brands.store');
     Route::put('brands_{id}', [BrandController::class, 'update'])->name('brands.update');
     Route::delete('brands_{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
@@ -149,8 +156,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('medicines', [MedicineController::class, 'index'])->name('medicines.index');
     Route::get('medicines_create', [MedicineController::class, 'create'])->name('medicines.create');
-    Route::get('medicines_{id}', [MedicineController::class, 'show'])->name('medicines.show');
     Route::get('medicines_{id}_edit', [MedicineController::class, 'edit'])->name('medicines.edit');
+    Route::get('medicines_{id}', [MedicineController::class, 'show'])->name('medicines.show');
     Route::post('medicines', [MedicineController::class, 'store'])->name('medicines.store');
     Route::put('medicines_{id}', [MedicineController::class, 'update'])->name('medicines.update');
     Route::delete('medicines_{id}', [MedicineController::class, 'destroy'])->name('medicines.destroy');
@@ -158,8 +165,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('preview-details', [PreviewDetailsController::class, 'index'])->name('preview-details.index');
     Route::get('preview-details_create', [PreviewDetailsController::class, 'create'])->name('preview-details.create');
-    Route::get('preview-details_{id}', [PreviewDetailsController::class, 'show'])->name('preview-details.show');
     Route::get('preview-details_{id}_edit', [PreviewDetailsController::class, 'edit'])->name('preview-details.edit');
+    Route::get('preview-details_{id}', [PreviewDetailsController::class, 'show'])->name('preview-details.show');
     Route::post('preview-details', [PreviewDetailsController::class, 'store'])->name('preview-details.store');
     Route::put('preview-details_{id}', [PreviewDetailsController::class, 'update'])->name('preview-details.update');
     Route::delete('preview-details_{id}', [PreviewDetailsController::class, 'destroy'])->name('preview-details.destroy');
@@ -167,8 +174,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('operations', [OperationController::class, 'index'])->name('operations.index');
     Route::get('operations_create', [OperationController::class, 'create'])->name('operations.create');
-    Route::get('operations_{id}', [OperationController::class, 'show'])->name('operations.show');
     Route::get('operations_{id}_edit', [OperationController::class, 'edit'])->name('operations.edit');
+    Route::get('operations_{id}', [OperationController::class, 'show'])->name('operations.show');
     Route::post('operations', [OperationController::class, 'store'])->name('operations.store');
     Route::put('operations_{id}', [OperationController::class, 'update'])->name('operations.update');
     Route::delete('operations_{id}', [OperationController::class, 'destroy'])->name('operations.destroy');
@@ -176,8 +183,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('operation-doctors', [OperationDoctorController::class, 'index'])->name('operation-doctors.index');
     Route::get('operation-doctors_create', [OperationDoctorController::class, 'create'])->name('operation-doctors.create');
-    Route::get('operation-doctors_{id}', [OperationDoctorController::class, 'show'])->name('operation-doctors.show');
     Route::get('operation-doctors_{id}_edit', [OperationDoctorController::class, 'edit'])->name('operation-doctors.edit');
+    Route::get('operation-doctors_{id}', [OperationDoctorController::class, 'show'])->name('operation-doctors.show');
     Route::post('operation-doctors', [OperationDoctorController::class, 'store'])->name('operation-doctors.store');
     Route::put('operation-doctors_{id}', [OperationDoctorController::class, 'update'])->name('operation-doctors.update');
     Route::delete('operation-doctors_{id}', [OperationDoctorController::class, 'destroy'])->name('operation-doctors.destroy');

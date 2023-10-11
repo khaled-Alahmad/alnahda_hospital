@@ -26,13 +26,14 @@ class OperationController extends Controller
         $previews = Preview::all();
         $rooms = Room::all();
         // إنشاء عملية جديدة
-        return view('operations.create',compact( 'doctors', 'patients', 'previews', 'rooms'));
+        return view('operations.create', compact('doctors', 'patients', 'previews', 'rooms'));
     }
 
     public function store(Request $request)
     {
         // حفظ العملية المنشأة في قاعدة البيانات
         Operation::create($request->all());
+        notify()->success('تم إنشاء العملية بنجاح.');
 
         return redirect()->route('operations.index')
             ->with('success', 'تم إنشاء العملية بنجاح.');
@@ -58,6 +59,7 @@ class OperationController extends Controller
     {
         $operation = Operation::findOrFail($id);
         $operation->update($request->all());
+        notify()->success('تم تحديث العملية بنجاح.');
 
         return redirect()->route('operations.index')
             ->with('success', 'تم تحديث العملية بنجاح.');
@@ -67,6 +69,7 @@ class OperationController extends Controller
     {
         $operation = Operation::findOrFail($id);
         $operation->delete();
+        notify()->success('تم حذف العملية بنجاح.');
 
         return redirect()->route('operations.index')
             ->with('success', 'تم حذف العملية بنجاح.');

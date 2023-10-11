@@ -51,7 +51,6 @@ class UserController extends Controller
             'lastName' => $request->input('lastName'),
             'father' => $request->input('father'),
             'age' => $request->input('age'),
-
             'mother' => $request->input('mother'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
@@ -60,6 +59,7 @@ class UserController extends Controller
             'gender' => $request->input('gender'),
         ]);
 
+        notify()->success('تم إضافة المستخدم بنجاح.');
 
         return redirect('/users')->with('success', 'User has been added');
     }
@@ -99,25 +99,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'age' => 'required',
-            'father' => 'required',
-            'mother' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
-            'gender' => 'required',
-        ]);
         $user = User::find($id);
         $user->update([
             'firstName' => $request->input('firstName'),
             'lastName' => $request->input('lastName'),
             'father' => $request->input('father'),
             'age' => $request->input('age'),
-
+            'role_id' => $request->input('role_id'),
             'mother' => $request->input('mother'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
@@ -125,8 +113,9 @@ class UserController extends Controller
             'password' => bcrypt($request->input('password')),
             'gender' => $request->input('gender'),
         ]);
+        notify()->success('تم تحديث بيانات المستخدم بنجاح.');
 
-        return redirect('/users')->with('success', 'User has been updated');
+        return redirect()->route('users.index')->with('success', 'User has been updated');
     }
 
     /**
@@ -139,10 +128,12 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+        notify()->success('تم حذف المستخدم بنجاح.');
 
         return redirect('/users')->with('success', 'User has been deleted');
     }
-    public  function  search(){
+    public  function  search()
+    {
         return view('users.index');
     }
 }
