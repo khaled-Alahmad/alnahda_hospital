@@ -1,8 +1,9 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="position-fixed custom-scroll" style="height: 100vh;">
-        @can('isAdmin')
-
         <ul class="nav">
+
+            @can('isAdmin')
+
 
 
             <li class="nav-item">
@@ -339,13 +340,11 @@
                     </ul>
                 </div>
             </li>
-        </ul>
-        @endcan
+            @endcan
 
-        <!-- doctor -->
-        @can('isDoctor')
+            <!-- doctor -->
+            @can('isDoctor')
 
-        <ul name="nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fa-solid fa-gauge  menu-icon"></i>
@@ -394,23 +393,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#doctor-departments" aria-expanded="false" aria-controls="doctor-departments">
-                    <i class="fa-regular fa-building  menu-icon"></i>
-                    <span class="menu-title">أقسام الأطباء</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="doctor-departments">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('doctor-departments.index')}}">
-                                قائمة أقسام الأطباء
-                            </a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#patient-rooms" aria-expanded="false" aria-controls="#patient-rooms">
                     <i class="fa-solid fa-person-booth menu-icon"></i>
@@ -552,30 +535,12 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
-                    <i class="fa-solid fa-user menu-icon"></i>
-                    <span class="menu-title"> المستخدمين</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="users">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('users.index')}}">
-                                قائمة المستخدمين
-                            </a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
-        </ul>
-        @endcan
-        <!-- patient -->
+            @endcan
+            <!-- patient -->
 
-        @can('isPatient')
+            @can('isPatient')
 
-        <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fa-solid fa-gauge  menu-icon"></i>
@@ -682,26 +647,10 @@
             </li>
 
 
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
-                    <i class="fa-solid fa-user menu-icon"></i>
-                    <span class="menu-title"> المستخدمين</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="users">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('users.index')}}">
-                                قائمة المستخدمين
-                            </a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
+
+            @endcan
         </ul>
-
-        @endcan
     </div>
 
 </nav>

@@ -35,6 +35,7 @@
                     <td>{{ $detail->medicine->name }}</td>
                     <td>{{ $detail->created_at }}</td>
                     <td>
+                        @can('isAdmin')
                         <a href="{{ route('preview-details.show', $detail->id) }}" class="btn btn-primary">عرض</a>
                         <a href="{{ route('preview-details.edit', $detail->id) }}" class="btn btn-warning">تعديل</a>
                         <form action="{{ route('preview-details.destroy', $detail->id) }}" method="POST">
@@ -42,6 +43,19 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا السجل؟')">حذف</button>
                         </form>
+                        @endcan
+                        @can('isDoctor')
+                        <a href="{{ route('preview-details.show', $detail->id) }}" class="btn btn-primary">عرض</a>
+                        <a href="{{ route('preview-details.edit', $detail->id) }}" class="btn btn-warning">تعديل</a>
+                        <form action="{{ route('preview-details.destroy', $detail->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا السجل؟')">حذف</button>
+                        </form>
+                        @endcan
+                        @can('isPatient')
+                        ليس لديك صلاحية لأي إجراء
+                        @endcan
                     </td>
                 </tr>
                 @endforeach

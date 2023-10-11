@@ -2,7 +2,11 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckUserAccess;
+use App\Http\Middleware\CheckUserAccessAdminDoctor;
 use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\isDoctor;
+use App\Http\Middleware\isPatient;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -55,6 +59,10 @@ class Kernel extends HttpKernel
      */
     protected $middlewareAliases = [
         'isAdmin' => isAdmin::class,
+        'isDoctor' => isDoctor::class,
+        'isPatient' => isPatient::class,
+        'CheckUserAccess' => CheckUserAccess::class,
+        'CheckUserAccessAdminDoctor' => CheckUserAccessAdminDoctor::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

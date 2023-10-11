@@ -23,6 +23,6 @@ class isAdmin
             return $next($request);
         }
         notify()->error('ليس لديك صلاحيات');
-        return redirect('/');
+        return redirect()->route('dashboard');
     }
 }

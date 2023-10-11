@@ -31,6 +31,8 @@
                     <td>{{ $doctor->doctor_department->title }}</td>
                     <td>{{ $doctor->specialist }}</td>
                     <td>
+                        @can('isAdmin')
+
                         <a href="{{ route('doctors.show', $doctor->id) }}" class="btn btn-primary">عرض</a>
                         <a href="{{ route('doctors.edit', $doctor->id) }}" class="btn btn-warning">تحرير</a>
                         <form action="{{ route('doctors.destroy', $doctor->id) }}" method="POST" style="display: inline-block;">
@@ -38,6 +40,15 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الطبيب؟')">حذف</button>
                         </form>
+                        @endcan
+                        @can('isDoctor')
+                        ليس لديك صلاحية لأي إجراء
+
+                        @endcan
+                        @can('isPatient')
+                        ليس لديك صلاحية لأي إجراء
+
+                        @endcan
                     </td>
                 </tr>
                 @endforeach
