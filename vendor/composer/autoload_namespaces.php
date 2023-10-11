@@ -6,8 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ComponentInstaller' => array($vendorDir . '/robloach/component-installer/src'),
     'Mcamara\\LaravelLocalization' => array($vendorDir . '/mcamara/laravel-localization/src'),
-
-    'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );

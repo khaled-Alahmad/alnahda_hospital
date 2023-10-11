@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Builder::useVite();
         Paginator::useBootstrapFive();
+
         // Blade::component('notify-messages', NotifyMessages::class);
     }
 }

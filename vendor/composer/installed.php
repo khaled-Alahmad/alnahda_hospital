@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'eb970f07d1a16aba5e44fe5dcaf535287fa586f0',
+        'reference' => '4df2162243c7c9cfddf3c39c90696eeb5b18c0a7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'astrotomic/laravel-translatable' => array(
+            'pretty_version' => 'v11.12.1',
+            'version' => '11.12.1.0',
+            'reference' => '04de8d1a7c8299a4071fd6bede41d47d264f2d4d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../astrotomic/laravel-translatable',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brianium/paratest' => array(
             'pretty_version' => 'v7.3.0',
             'version' => '7.3.0.0',
@@ -427,7 +436,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'eb970f07d1a16aba5e44fe5dcaf535287fa586f0',
+            'reference' => '4df2162243c7c9cfddf3c39c90696eeb5b18c0a7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -542,11 +551,20 @@
             'dev_requirement' => false,
         ),
         'livewire/livewire' => array(
-            'pretty_version' => 'v3.0.7',
-            'version' => '3.0.7.0',
-            'reference' => 'a2fc40f6121362581e72d5da5d820a6af00f62b0',
+            'pretty_version' => 'v3.0.8',
+            'version' => '3.0.8.0',
+            'reference' => '6f62019a0e821894f701ca463210c01d7369c929',
             'type' => 'library',
             'install_path' => __DIR__ . '/../livewire/livewire',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'mcamara/laravel-localization' => array(
+            'pretty_version' => 'V1.8.0',
+            'version' => '1.8.0.0',
+            'reference' => '9b1779a963c1779d1977d8ad0558a681608e3ec1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mcamara/laravel-localization',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -910,8 +928,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(
