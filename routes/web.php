@@ -192,6 +192,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('patient_report', [ReportsController::class, 'patientReport'])->name('patient.report');
     Route::post('patient_reports', [ReportsController::class, 'patientReports'])->name('patient.reports');
+    Route::get('doctor_report', [ReportsController::class, 'doctorReport'])->name('doctor.report');
+    Route::post('doctor_reports', [ReportsController::class, 'doctorReports'])->name('doctor.reports');
 });
 
 require __DIR__ . '/auth.php';

@@ -332,10 +332,10 @@
                             <a class="nav-link" href="{{route('patient.report')}}">
                                 تقارير مريض </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="{{route('users.create')}}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('doctor.report')}}">
                                 تقارير دكتور </a>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
             </li>

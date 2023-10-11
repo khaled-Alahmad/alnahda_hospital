@@ -19,6 +19,8 @@ class ReportsController extends Controller
         $patient = Patient::find($id);
 
         if (!$patient) {
+            notify()->error('مريض غير موجود');
+
             return redirect()->back()->with('error', 'مريض غير موجود');
         }
 
@@ -27,13 +29,21 @@ class ReportsController extends Controller
         return view('reports.patient_reports', compact('patient', 'appointments'));
     }
 
-
-    public function doctorReports($id)
+    public function doctorReport()
     {
+        return view('reports.doctor_reports');
+    }
+    public function doctorReports(Request $request)
+    {
+        $id = $request->input('id');
         $doctor = Doctor::findOrFail($id);
-        $operations = $doctor->operations;
+        if (!$doctor) {
+            notify()->error('طبيب غير موجود');
 
-        // تمرير البيانات إلى عرض Blade
-        return view('doctor_reports', compact('doctor', 'operations'));
+            return redirect()->back()->with('error', 'طبيب غير موجود');
+        }
+        $previews = $doctor->preview;
+        $operations = $doctor->operations;
+        return view('reports.doctor_reports', compact('doctor', 'operations', 'previews'));
     }
 }
