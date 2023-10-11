@@ -694,6 +694,7 @@ class ComposerStaticInitbc3d48ca32a644ff8ee52156959edad4
         'App\\Http\\Controllers\\PreviewController' => __DIR__ . '/../..' . '/app/Http/Controllers/PreviewController.php',
         'App\\Http\\Controllers\\PreviewDetailsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PreviewDetailsController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
+        'App\\Http\\Controllers\\ReportsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReportsController.php',
         'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
         'App\\Http\\Controllers\\RoomController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoomController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',

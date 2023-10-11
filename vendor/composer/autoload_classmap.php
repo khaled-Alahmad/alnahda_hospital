@@ -39,6 +39,7 @@ return array(
     'App\\Http\\Controllers\\PreviewController' => $baseDir . '/app/Http/Controllers/PreviewController.php',
     'App\\Http\\Controllers\\PreviewDetailsController' => $baseDir . '/app/Http/Controllers/PreviewDetailsController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
+    'App\\Http\\Controllers\\ReportsController' => $baseDir . '/app/Http/Controllers/ReportsController.php',
     'App\\Http\\Controllers\\RoleController' => $baseDir . '/app/Http/Controllers/RoleController.php',
     'App\\Http\\Controllers\\RoomController' => $baseDir . '/app/Http/Controllers/RoomController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',

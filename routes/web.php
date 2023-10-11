@@ -56,15 +56,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('dashboard')->group(function (){
-    Route::get('rooms', [RoomController::class, 'index'])->name('rooms.index');
-    Route::get('rooms/{id}', [RoomController::class, 'show'])->name('rooms.show');
-    Route::get('rooms/create', [RoomController::class, 'create'])->name('rooms.create');
-    Route::get('rooms/{id}/edit', [RoomController::class, 'edit'])->name('rooms.edit');
-    Route::post('rooms', [RoomController::class, 'store'])->name('rooms.store');
-    Route::put('rooms/{id}', [RoomController::class, 'update'])->name('rooms.update');
-    Route::delete('rooms/{id}', [RoomController::class, 'destroy'])->name('rooms.destroy');
-    Route::get('rooms/search', [RoomController::class, 'search'])->name('rooms.search');
+Route::prefix('dashboard')->group(function () {
+    // Route::get('rooms', [RoomController::class, 'index'])->name('rooms.index');
+    // Route::get('rooms_{id}', [RoomController::class, 'show'])->name('rooms.show');
+    // Route::get('rooms_create', [RoomController::class, 'create'])->name('rooms.create');
+    // Route::get('rooms_{id}/edit', [RoomController::class, 'edit'])->name('rooms.edit');
+    // Route::post('rooms', [RoomController::class, 'store'])->name('rooms.store');
+    // Route::put('rooms_{id}', [RoomController::class, 'update'])->name('rooms.update');
+    // Route::delete('rooms_{id}', [RoomController::class, 'destroy'])->name('rooms.destroy');
+    Route::resource('rooms', RoomController::class);
+    Route::get('rooms_search', [RoomController::class, 'search'])->name('rooms.search');
 
     Route::get('floors', [FloorController::class, 'index'])->name('floors.index');
     Route::get('floors/{id}', [FloorController::class, 'show'])->name('floors.show');
@@ -119,14 +120,14 @@ Route::prefix('dashboard')->group(function (){
     Route::put('illnesses/{id}', [IllnessController::class, 'update'])->name('illnesses.update');
     Route::delete('illnesses/{id}', [IllnessController::class, 'destroy'])->name('illnesses.destroy');
     Route::get('illnesses/search', [IllnessController::class, 'search'])->name('illnesses.search');
-    Route::resource('previews',PreviewController::class);
-//    Route::get('previews', [PreviewController::class, 'index'])->name('previews.index');
-//    Route::get('previews/{id}', [PreviewController::class, 'show'])->name('previews.show');
-//    Route::get('previews/create', [PreviewController::class, 'create'])->name('previews.create');
-//    Route::get('previews/{id}/edit', [PreviewController::class, 'edit'])->name('previews.edit');
-//    Route::post('previews', [PreviewController::class, 'store'])->name('previews.store');
-//    Route::put('previews/{id}', [PreviewController::class, 'update'])->name('previews.update');
-//    Route::delete('previews/{id}', [PreviewController::class, 'destroy'])->name('previews.destroy');
+    Route::resource('previews', PreviewController::class);
+    //    Route::get('previews', [PreviewController::class, 'index'])->name('previews.index');
+    //    Route::get('previews/{id}', [PreviewController::class, 'show'])->name('previews.show');
+    //    Route::get('previews/create', [PreviewController::class, 'create'])->name('previews.create');
+    //    Route::get('previews/{id}/edit', [PreviewController::class, 'edit'])->name('previews.edit');
+    //    Route::post('previews', [PreviewController::class, 'store'])->name('previews.store');
+    //    Route::put('previews/{id}', [PreviewController::class, 'update'])->name('previews.update');
+    //    Route::delete('previews/{id}', [PreviewController::class, 'destroy'])->name('previews.destroy');
     Route::get('previews/search', [PreviewController::class, 'search'])->name('previews.search');
 
     Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
