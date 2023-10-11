@@ -42,6 +42,7 @@ class PreviewController extends Controller
 
         // Create a new preview
         Preview::create($request->all());
+        notify()->success('تمت إضافة المعاينة بنجاح.');
 
         return redirect()->route('previews.index')->with('success', 'تمت إضافة المعاينة بنجاح.');
     }
@@ -72,6 +73,7 @@ class PreviewController extends Controller
         // Update the preview
         $preview = Preview::findOrFail($id);
         $preview->update($request->all());
+        notify()->success('تم تحديث المعاينة بنجاح.');
 
         return redirect()->route('previews.index')->with('success', 'تم تحديث المعاينة بنجاح.');
     }
@@ -80,6 +82,7 @@ class PreviewController extends Controller
     {
         $preview = Preview::findOrFail($id);
         $preview->delete();
+        notify()->success('تم حذف المعاينة بنجاح.');
 
         return redirect()->route('previews.index')->with('success', 'تم حذف المعاينة بنجاح.');
     }

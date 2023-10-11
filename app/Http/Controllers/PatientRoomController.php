@@ -101,7 +101,6 @@ class PatientRoomController extends Controller
 
     public function destroy($id)
     {
-        // اجراء عملية الحذف هنا
         $patientRoom = PatientRoom::find($id);
         $patientRoom->delete();
         notify()->success('تم حذف الغرفة بنجاح');

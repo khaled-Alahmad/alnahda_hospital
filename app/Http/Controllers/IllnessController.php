@@ -27,6 +27,7 @@ class IllnessController extends Controller
         Illness::create([
             'name' => $request->input('name'),
         ]);
+        notify()->success('تمت إضافة المرض بنجاح');
 
         return redirect()->route('illnesses.index')
             ->with('success', 'تمت إضافة المرض بنجاح');
@@ -54,6 +55,7 @@ class IllnessController extends Controller
         $illness->update([
             'name' => $request->input('name'),
         ]);
+        notify()->success('تم تحديث المرض بنجاح');
 
         return redirect()->route('illnesses.index')
             ->with('success', 'تم تحديث المرض بنجاح');
@@ -63,6 +65,7 @@ class IllnessController extends Controller
     {
         $illness = Illness::find($id);
         $illness->delete();
+        notify()->success('تم حذف المرض بنجاح');
 
         return redirect()->route('illnesses.index')
             ->with('success', 'تم حذف المرض بنجاح');

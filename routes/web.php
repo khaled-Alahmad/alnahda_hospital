@@ -112,18 +112,17 @@ Route::middleware('auth')->group(function () {
 
     Route::get('illnesses', [IllnessController::class, 'index'])->name('illnesses.index');
     Route::get('illnesses_create', [IllnessController::class, 'create'])->name('illnesses.create');
-    Route::get('illnesses_{id}', [IllnessController::class, 'show'])->name('illnesses.show');
     Route::get('illnesses_{id}_edit', [IllnessController::class, 'edit'])->name('illnesses.edit');
+    Route::get('illnesses_{id}', [IllnessController::class, 'show'])->name('illnesses.show');
     Route::post('illnesses', [IllnessController::class, 'store'])->name('illnesses.store');
     Route::put('illnesses_{id}', [IllnessController::class, 'update'])->name('illnesses.update');
     Route::delete('illnesses_{id}', [IllnessController::class, 'destroy'])->name('illnesses.destroy');
     Route::get('illnesses_search', [IllnessController::class, 'search'])->name('illnesses.search');
 
-    // Route::resource('previews', PreviewController::class);
     Route::get('previews', [PreviewController::class, 'index'])->name('previews.index');
     Route::get('previews_create', [PreviewController::class, 'create'])->name('previews.create');
-    Route::get('previews_{id}', [PreviewController::class, 'show'])->name('previews.show');
     Route::get('previews_{id}_edit', [PreviewController::class, 'edit'])->name('previews.edit');
+    Route::get('previews_{id}', [PreviewController::class, 'show'])->name('previews.show');
     Route::post('previews', [PreviewController::class, 'store'])->name('previews.store');
     Route::put('previews_{id}', [PreviewController::class, 'update'])->name('previews.update');
     Route::delete('previews_{id}', [PreviewController::class, 'destroy'])->name('previews.destroy');
@@ -132,6 +131,8 @@ Route::middleware('auth')->group(function () {
     Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('categories_create', [CategoryController::class, 'create'])->name('categories.create');
     Route::get('categories_{id}_edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::get('categories_{id}', [CategoryController::class, 'show'])->name('categories.show');
+
     Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::put('categories_{id}', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('categories_{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
