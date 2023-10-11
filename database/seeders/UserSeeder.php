@@ -67,7 +67,7 @@ class UserSeeder extends Seeder
 
                 'address' => 'azaz',
                 'email' => 'doctor2@gmail.com',
-                'password' => bcrypt('12345678'),
+                'password' => bcrypt('12346678'),
 
 
             ], [
