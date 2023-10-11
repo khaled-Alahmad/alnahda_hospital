@@ -9,8 +9,8 @@ class Illness extends Model
 {
     use HasFactory;
     protected  $guarded = ['id'];
-    public function preview()
+    public function previewDetails()
     {
-        return $this->hasMany(Preview::class);
+        return $this->hasMany(PreviewDetails::class);
     }
 }

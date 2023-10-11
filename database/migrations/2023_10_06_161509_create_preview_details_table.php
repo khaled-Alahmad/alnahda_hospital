@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('preview_details', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('illness_id')->constrained()->cascadeOnDelete();
             $table->foreignId('preview_id')->constrained()->cascadeOnDelete();
             $table->foreignId('medicine_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

@@ -13,11 +13,10 @@ class PreviewController extends Controller
     public function index()
     {
         $previews = Preview::all();
-        $illnesses = Illness::all();
         $doctors = Doctor::all();
         $patients = Patient::all();
 
-        return view('previews.index', compact('previews', 'illnesses', 'doctors', 'patients'));
+        return view('previews.index', compact('previews', 'doctors', 'patients'));
     }
 
     public function create()
@@ -35,7 +34,6 @@ class PreviewController extends Controller
         $request->validate([
             'patient_id' => 'required',
             'doctor_id' => 'required',
-            'illness_id' => 'required',
             'status' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
             'preview_datetime' => 'required',
         ]);
@@ -65,7 +63,6 @@ class PreviewController extends Controller
         $request->validate([
             'patient_id' => 'required',
             'doctor_id' => 'required',
-            'illness_id' => 'required',
             'status' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
             'preview_datetime' => 'required|date',
         ]);

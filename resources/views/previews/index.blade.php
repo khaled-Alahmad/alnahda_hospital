@@ -18,11 +18,7 @@
                     @endforeach
                 </select>
 
-                <select class="form-control" id="illness_id" name="illness_id" required>
-                    @foreach($illnesses as $illness)
-                    <option value="{{ $illness->id }}">{{ $illness->name }}</option>
-                    @endforeach
-                </select>
+
                 <div class="input-group-append">
                     <button class="btn btn-secondary" type="submit">بحث</button>
                 </div>
@@ -38,7 +34,6 @@
                     <th scope="col">#</th>
                     <th scope="col">اسم المريض</th>
                     <th scope="col">اسم الطبيب</th>
-                    <th scope="col">المرض</th>
 
                     <th scope="col">نوع المعاينة</th>
                     <th scope="col">التاريخ والوقت</th>
@@ -51,7 +46,6 @@
                     <th scope="row">{{ $preview->id }}</th>
                     <td>{{ $preview->patient->user->firstName. ' '.$preview->patient->user->firstName }}</td>
                     <td>{{ $preview->doctor->user->firstName. ' '.$preview->doctor->user->firstName }}</td>
-                    <td>{{ $preview->illness->name }}</td>
 
                     <td>{{ $preview->status }}</td>
                     <td>{{ $preview->preview_datetime }}</td>

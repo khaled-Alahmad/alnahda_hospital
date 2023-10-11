@@ -23,7 +23,10 @@
                 <tr>
                     <th scope="">رقم المعاينة</th>
                     <th scope=""> الدواء</th>
+                    <th scope="col">المرض</th>
+
                     <th scope="">تاريخ الإنشاء</th>
+
                     <th scope=""> الاجرائيات</th>
 
                 </tr>
@@ -33,7 +36,10 @@
                 <tr>
                     <td>{{ $detail->preview_id }}</td>
                     <td>{{ $detail->medicine->name }}</td>
+                    <td>{{ $detail->illness->name }}</td>
+
                     <td>{{ $detail->created_at }}</td>
+
                     <td>
                         @can('isAdmin')
                         <a href="{{ route('preview-details.show', $detail->id) }}" class="btn btn-primary">عرض</a>

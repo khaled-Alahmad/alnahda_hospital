@@ -5,7 +5,6 @@
 
         <p><strong>المريض:</strong> {{ $preview->patient->user->firstName.' '. $preview->patient->user->lastName }}</p>
         <p><strong>الطبيب:</strong> {{ $preview->doctor->user->firstName.' '.$preview->doctor->user->lastName }}</p>
-        <p><strong>نوع المرض:</strong> {{ $preview->illness->name }}</p>
         <p><strong>نوع المعاينة:</strong> {{ $preview->status }}</p>
         <p><strong>التاريخ والوقت:</strong> {{ $preview->date }} {{ $preview->preview_datetime }}</p>
 

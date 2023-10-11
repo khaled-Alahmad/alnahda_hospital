@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorDepartmentController;
 use App\Http\Controllers\FloorController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IllnessController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\OperationController;
@@ -38,9 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::get('users', [UserController::class, 'index'])->name('users.index')->middleware(['isAdmin']);
     Route::get('users_create', [UserController::class, 'create'])->name('users.create')->middleware(['isAdmin']);
     Route::get('users_{id}_edit', [UserController::class, 'edit'])->name('users.edit')->middleware(['isAdmin']);
