@@ -17,6 +17,7 @@ class ReportsController extends Controller
         $id = $request->input('id');
 
         $patient = Patient::find($id);
+
         if (!$patient) {
             return redirect()->back()->with('error', 'مريض غير موجود');
         }

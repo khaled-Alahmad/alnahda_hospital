@@ -27,8 +27,8 @@
                 @foreach($doctors as $doctor)
                 <tr>
                     <td>{{ $doctor->id }}</td>
-                    <td>{{ $doctor->user->firstName }}</td>
-                    <td>{{ $doctor->doctor_department_id }}</td>
+                    <td>{{ $doctor->user->firstName.' '.$doctor->user->lastName }}</td>
+                    <td>{{ $doctor->doctor_department->title }}</td>
                     <td>{{ $doctor->specialist }}</td>
                     <td>
                         <a href="{{ route('doctors.show', $doctor->id) }}" class="btn btn-primary">عرض</a>
@@ -43,32 +43,6 @@
                 @endforeach
             </tbody>
         </table>
-        <script>
-            // استخدم Vue.js للبحث التلقائي
-            new Vue({
-                el: '#app',
-                data: {
-                    doctors: [],
-                    search: ''
-                },
-                watch: {
-                    // تتبع تغييرات الحقل بحث
-                    search: function(newSearch) {
-                        this.fetchData();
-                    }
-                },
-                methods: {
-                    fetchData: function() {
-                        axios.get('/search?search=' + this.search)
-                            .then(response => {
-                                this.doctors = response.data;
-                            })
-                            .catch(error => {
-                                console.error(error);
-                            });
-                    }
-                }
-            });
-        </script>
+
     </div>
 </x-app-layout>

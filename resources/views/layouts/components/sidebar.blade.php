@@ -1,7 +1,8 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="position-fixed custom-scroll" style="height: 100vh;">
+        @can('isAdmin')
+
         <ul class="nav">
-            @can('isAdmin')
 
 
             <li class="nav-item">
@@ -81,7 +82,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-expanded="false" href="{{route('doctors.create')}}">
+                            <a class="nav-link" aria-expanded="false" href="{{route('patients.create')}}">
                                 مريض جديد
                             </a>
                         </li>
@@ -319,12 +320,32 @@
                     </ul>
                 </div>
             </li>
-            @endcan
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#reports" aria-expanded="false" aria-controls="reports">
+                    <i class="fa-solid fa-user menu-icon"></i>
+                    <span class="menu-title"> التقارير</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="reports">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('patient.report')}}">
+                                تقارير مريض </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="{{route('users.create')}}">
+                                تقارير دكتور </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        @endcan
 
-            <!-- doctor -->
-            @can('isDoctor')
+        <!-- doctor -->
+        @can('isDoctor')
 
-
+        <ul name="nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fa-solid fa-gauge  menu-icon"></i>
@@ -366,7 +387,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-expanded="false" href="{{route('doctors.create')}}">
+                            <a class="nav-link" aria-expanded="false" href="{{route('patients.create')}}">
                                 مريض جديد
                             </a>
                         </li>
@@ -548,12 +569,13 @@
                     </ul>
                 </div>
             </li>
-            @endcan
-            <!-- patient -->
+        </ul>
+        @endcan
+        <!-- patient -->
 
-            @can('isPatient')
+        @can('isPatient')
 
-
+        <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fa-solid fa-gauge  menu-icon"></i>
@@ -677,9 +699,9 @@
                     </ul>
                 </div>
             </li>
-
-            @endcan
         </ul>
+
+        @endcan
     </div>
 
 </nav>

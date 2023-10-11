@@ -29,6 +29,7 @@ class DoctorDepartmentController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
         ]);
+        notify()->success('تمت إضافة القسم الطبي بنجاح');
 
         return redirect()->route('doctor-departments.index')
             ->with('success', 'تمت إضافة القسم الطبي بنجاح');
@@ -58,6 +59,7 @@ class DoctorDepartmentController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
         ]);
+        notify()->success('تم تحديث القسم الطبي بنجاح');
 
         return redirect()->route('doctor-departments.index')
             ->with('success', 'تم تحديث القسم الطبي بنجاح');
@@ -67,6 +69,7 @@ class DoctorDepartmentController extends Controller
     {
         $department = DoctorDepartment::find($id);
         $department->delete();
+        notify()->success('تم حذف القسم الطبي بنجاح');
 
         return redirect()->route('doctor-departments.index')
             ->with('success', 'تم حذف القسم الطبي بنجاح');

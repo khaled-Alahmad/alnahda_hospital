@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <div class="container">
         <h1>تحرير بيانات الطبيب</h1>
 
@@ -8,11 +7,23 @@
             @method('PUT')
             <div class="form-group">
                 <label for="user_id">المستخدم:</label>
-                <input type="text" class="form-control" id="user_id" name="user_id" value="{{ $doctor->user_id }}" required>
+                <select class="form-control" id="user_id" name="user_id" required>
+                    @foreach($users as $user)
+                    <option value="{{ $user->id }}" {{ $user->id == $doctor->user_id ? 'selected' : '' }}>
+                        {{ $user->firstName.' '.$user->lastName }}
+                    </option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="doctor_department_id">القسم الطبي:</label>
-                <input type="text" class="form-control" id="doctor_department_id" name="doctor_department_id" value="{{ $doctor->doctor_department_id }}" required>
+                <select class="form-control" id="doctor_department_id" name="doctor_department_id" required>
+                    @foreach($doctorDepartments as $department)
+                    <option value="{{ $department->id }}" {{ $department->id == $doctor->doctor_department_id ? 'selected' : '' }}>
+                        {{ $department->title }}
+                    </option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="specialist">التخصص:</label>

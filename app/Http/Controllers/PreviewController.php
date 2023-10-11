@@ -26,7 +26,7 @@ class PreviewController extends Controller
         $doctors = Doctor::all();
         $patients = Patient::all();
 
-        return view('previews.create',compact( 'illnesses', 'doctors', 'patients'));
+        return view('previews.create', compact('illnesses', 'doctors', 'patients'));
     }
 
     public function store(Request $request)
@@ -36,10 +36,10 @@ class PreviewController extends Controller
             'patient_id' => 'required',
             'doctor_id' => 'required',
             'illness_id' => 'required',
-            'type' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
+            'status' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
             'preview_datetime' => 'required',
         ]);
-        
+
         // Create a new preview
         Preview::create($request->all());
 
@@ -65,7 +65,7 @@ class PreviewController extends Controller
             'patient_id' => 'required',
             'doctor_id' => 'required',
             'illness_id' => 'required',
-            'type' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
+            'status' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
             'preview_datetime' => 'required|date',
         ]);
 

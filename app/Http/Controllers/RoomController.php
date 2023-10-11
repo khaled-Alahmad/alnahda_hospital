@@ -22,13 +22,13 @@ class RoomController extends Controller
 
     public function store(Request $request)
     {
-        // اجراء عملية الإضافة
         $room = new Room();
         $room->roomSize = $request->input('roomSize');
         $room->floor_id = $request->input('floor_id');
         $room->save();
+        notify()->success('تمت اضافة الغرفة بنجاح.');
 
-        return redirect()->route('rooms.index')->with('success', 'تمت إضافة الغرفة بنجاح');
+        return redirect()->route('rooms.index');
     }
 
     public function show($id)
@@ -46,20 +46,20 @@ class RoomController extends Controller
 
     public function update(Request $request, $id)
     {
-        // اجراء عملية التحديث
         $room = Room::find($id);
         $room->roomSize = $request->input('roomSize');
         $room->floor_id = $request->input('floor_id');
         $room->save();
+        notify()->success('تمت تحديث الغرفة بنجاح.');
 
         return redirect()->route('rooms.index')->with('success', 'تم تحديث الغرفة بنجاح');
     }
 
     public function destroy($id)
     {
-        // اجراء عملية الحذف
         $room = Room::find($id);
         $room->delete();
+        notify()->success('تمت حذف الغرفة بنجاح.');
 
         return redirect()->route('rooms.index')->with('success', 'تم حذف الغرفة بنجاح');
     }

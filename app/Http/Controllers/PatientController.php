@@ -17,7 +17,6 @@ class PatientController extends Controller
     public function create()
     {
         $users = User::whereDoesntHave('doctors')->whereDoesntHave('patients')->get();
-        dd($users);
         return view('patients.create', compact('users'));
     }
 
@@ -30,6 +29,7 @@ class PatientController extends Controller
         Patient::create([
             'user_id' => $request->input('user_id'),
         ]);
+        notify()->success('تمت إضافة المريض بنجاح');
 
         return redirect()->route('patients.index')
             ->with('success', 'تمت إضافة المريض بنجاح');
@@ -43,8 +43,9 @@ class PatientController extends Controller
 
     public function edit($id)
     {
+        $users = User::all();
         $patient = Patient::find($id);
-        return view('patients.edit', compact('patient'));
+        return view('patients.edit', compact('patient', 'users'));
     }
 
     public function update(Request $request, $id)
@@ -57,6 +58,7 @@ class PatientController extends Controller
         $patient->update([
             'user_id' => $request->input('user_id'),
         ]);
+        notify()->success('تم تحديث بيانات المريض بنجاح');
 
         return redirect()->route('patients.index')
             ->with('success', 'تم تحديث بيانات المريض بنجاح');
@@ -66,6 +68,7 @@ class PatientController extends Controller
     {
         $patient = Patient::find($id);
         $patient->delete();
+        notify()->success('تم حذف المريض بنجاح');
 
         return redirect()->route('patients.index')
             ->with('success', 'تم حذف المريض بنجاح');

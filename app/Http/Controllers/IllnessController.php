@@ -71,12 +71,10 @@ class IllnessController extends Controller
     public function search(Request $request)
     {
         $searchTerm = $request->input('search');
-        if ($searchTerm) {
-            $illnesses = Illness::where('name', 'like', "%$searchTerm%")->get();
-        } else {
-            $illnesses = Illness::all();
-        }
+
+        $illnesses = Illness::where('name', 'like', "%$searchTerm%")->get();
+
         return view('illnesses.index', compact('illnesses'));
-        // return "ppppp";
+        // return "ppppp";  
     }
 }

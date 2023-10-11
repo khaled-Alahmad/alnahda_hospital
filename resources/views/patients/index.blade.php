@@ -23,7 +23,7 @@
                 @foreach ($patients as $patient)
                 <tr>
                     <td>{{ $patient->id }}</td>
-                    <td>{{ $patient->user_id }}</td>
+                    <td>{{ $patient->user->firstName.' '.$patient->user->lastName }}</td>
                     <td>
                         <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-info">عرض</a>
                         <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-warning">تعديل</a>

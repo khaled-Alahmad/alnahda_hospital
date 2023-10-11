@@ -1,10 +1,15 @@
 <x-app-layout>
     <div class="container">
         <h1>قائمة الأمراض</h1>
-
-        <input type="text" class="form-control" name="search" id="search-illness" placeholder="البحث عن مرض">
-
-        <table class="table ">
+        <form action="{{ route('illnesses.search') }}" method="GET" class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" id="search" placeholder="البحث عن مرض">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">بحث</button>
+                </div>
+            </div>
+        </form>
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -31,6 +36,5 @@
             </tbody>
         </table>
     </div>
-
 
 </x-app-layout>
