@@ -16,9 +16,7 @@ use App\Http\Controllers\PreviewDetailsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\RoomController;
-use App\Models\Doctor;
-use App\Models\Illness;
-use App\Models\Patient;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -67,13 +65,14 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('rooms', RoomController::class);
     Route::get('rooms_search', [RoomController::class, 'search'])->name('rooms.search');
 
-    Route::get('floors', [FloorController::class, 'index'])->name('floors.index');
-    Route::get('floors/{id}', [FloorController::class, 'show'])->name('floors.show');
-    Route::get('floors/create', [FloorController::class, 'create'])->name('floors.create');
-    Route::get('floors/{id}/edit', [FloorController::class, 'edit'])->name('floors.edit');
-    Route::post('floors', [FloorController::class, 'store'])->name('floors.store');
-    Route::put('floors/{id}', [FloorController::class, 'update'])->name('floors.update');
-    Route::delete('floors/{id}', [FloorController::class, 'destroy'])->name('floors.destroy');
+    Route::resource('floors', FloorController::class);
+    // Route::get('floors', [FloorController::class, 'index'])->name('floors.index');
+    // Route::get('floors/{id}', [FloorController::class, 'show'])->name('floors.show');
+    // Route::get('floors/create', [FloorController::class, 'create'])->name('floors.create');
+    // Route::get('floors/{id}/edit', [FloorController::class, 'edit'])->name('floors.edit');
+    // Route::post('floors', [FloorController::class, 'store'])->name('floors.store');
+    // Route::put('floors/{id}', [FloorController::class, 'update'])->name('floors.update');
+    // Route::delete('floors/{id}', [FloorController::class, 'destroy'])->name('floors.destroy');
     Route::get('floors/search', [FloorController::class, 'search'])->name('floors.search');
 
     Route::get('doctor-departments', [DoctorDepartmentController::class, 'index'])->name('doctor-departments.index');

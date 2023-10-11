@@ -8857,7 +8857,7 @@ svg {
 }
 
 table {
-  border-collapse: collapse;
+  border-collapse: collapse !important;
 }
 
 caption {
@@ -11705,7 +11705,7 @@ input[type="button"].btn-block {
 }
 
 .collapse:not(.show) {
-  display: none;
+  display: none m !important;
 }
 
 .collapsing {
@@ -13448,9 +13448,9 @@ input[type="button"].btn-block {
 }
 
 .navbar-collapse {
-  flex-basis: 100%;
-  flex-grow: 1;
-  align-items: center;
+  flex-basis: 100% !important;
+  flex-grow: 1 !important;
+  align-items: center !important;
 }
 
 .navbar-toggler {
@@ -13512,7 +13512,7 @@ input[type="button"].btn-block {
   }
   .navbar-expand-sm .navbar-collapse {
     display: flex !important;
-    flex-basis: auto;
+    flex-basis: auto !important;
   }
   .navbar-expand-sm .navbar-toggler {
     display: none;
@@ -13551,7 +13551,7 @@ input[type="button"].btn-block {
   }
   .navbar-expand-md .navbar-collapse {
     display: flex !important;
-    flex-basis: auto;
+    flex-basis: auto !important;
   }
   .navbar-expand-md .navbar-toggler {
     display: none;
@@ -13590,7 +13590,7 @@ input[type="button"].btn-block {
   }
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
-    flex-basis: auto;
+    flex-basis: auto !important;
   }
   .navbar-expand-lg .navbar-toggler {
     display: none;
@@ -13629,7 +13629,7 @@ input[type="button"].btn-block {
   }
   .navbar-expand-xl .navbar-collapse {
     display: flex !important;
-    flex-basis: auto;
+    flex-basis: auto !important;
   }
   .navbar-expand-xl .navbar-toggler {
     display: none;
@@ -13671,7 +13671,7 @@ input[type="button"].btn-block {
 
 .navbar-expand .navbar-collapse {
   display: flex !important;
-  flex-basis: auto;
+  flex-basis: auto !important;
 }
 
 .navbar-expand .navbar-toggler {
@@ -28504,7 +28504,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav .nav-item .collapse {
-  z-index: 999;
+  z-index: 999 !important;
 }
 
 .sidebar .nav .nav-item .nav-link {
@@ -29878,10 +29878,10 @@ div.tagsinput span.tag a {
     display: inline-block;
   }
   .navbar-collapse {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-top: 0.5rem;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    margin-top: 0.5rem !important;
   }
 }
 
@@ -30024,7 +30024,7 @@ div.tagsinput span.tag a {
     border-radius: 5px 0 0 0;
   }
   .sidebar-icon-only .sidebar .nav .nav-item .collapse {
-    display: none;
+    display: none !important;
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
     display: -webkit-flex;
@@ -30068,24 +30068,24 @@ div.tagsinput span.tag a {
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse,
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-    display: block;
-    background: #fff;
-    border-radius: 0 0 5px 0;
-    position: absolute;
-    left: 70px;
-    width: 190px;
-    -webkit-box-shadow: 4px 4px 7px 0px rgba(182, 185, 189, 0.25);
-    box-shadow: 4px 4px 7px 0px rgba(182, 185, 189, 0.25);
+    display: block !important;
+    background: #fff !important;
+    border-radius: 0 0 5px 0 !important;
+    position: absolute !important;
+    left: 70px !important;
+    width: 190px !important;
+    -webkit-box-shadow: 4px 4px 7px 0px rgba(182, 185, 189, 0.25) !important;
+    box-shadow: 4px 4px 7px 0px rgba(182, 185, 189, 0.25) !important;
   }
   .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-    background: #232227;
+    background: #232227 !important;
   }
   .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-    left: auto;
-    right: 70px;
-    border-radius: 0 0 0 5px;
-    -webkit-box-shadow: -4px 4px 7px 0px rgba(182, 185, 189, 0.25);
-    box-shadow: -4px 4px 7px 0px rgba(182, 185, 189, 0.25);
+    left: auto !important;
+    right: 70px !important;
+    border-radius: 0 0 0 5px !important;
+    -webkit-box-shadow: -4px 4px 7px 0px rgba(182, 185, 189, 0.25) !important;
+    box-shadow: -4px 4px 7px 0px rgba(182, 185, 189, 0.25) !important;
   }
   .sidebar-icon-only .sidebar .nav:not(.sub-menu) .nav-item.active {
     border-radius: 0;

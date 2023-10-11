@@ -5,7 +5,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link" href="#{{ url('dashboard') }}">
                     <i class="fa-solid fa-gauge  menu-icon"></i>
                     <span class="menu-title">لوحة التحكم</span>
                 </a>
