@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Builder::useVite();
-        // Paginator::useBootstrap();
+        Paginator::useBootstrapFive();
         // Blade::component('notify-messages', NotifyMessages::class);
     }
 }
