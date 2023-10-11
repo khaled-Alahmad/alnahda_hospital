@@ -4,10 +4,13 @@
         <h1>قائمة المرضى</h1>
         <form action="{{ route('patients.search') }}" method="GET" class="mb-3">
             <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="ابحث عن مريض...">
-                <button type="submit" class="btn btn-primary">بحث</button>
+                <input type="text" class="form-control" name="search" placeholder="ابحث عن مريض...">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">بحث</button>
+                </div>
             </div>
         </form>
+
         <table class="table">
             <thead>
                 <tr>

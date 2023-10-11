@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $guarded = ['id'];
     protected $fillable = [
-        'firstName', 'lastName', 'gender', 'role_id', 'father', 'mother', 'age', 'phone', 'address', 'email'
+        'firstName', 'lastName', 'gender', 'role_id', 'father', 'mother', 'age', 'phone', 'address', 'email', 'password'
     ];
 
     /**
@@ -46,7 +46,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Doctor::class);
     }
-    public  function patient()
+    public  function patients()
     {
         return $this->hasMany(Patient::class);
     }

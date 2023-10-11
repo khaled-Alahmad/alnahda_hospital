@@ -1,24 +1,16 @@
 <x-app-layout>
     <div class="container">
         <h1>قائمة اطباء العمليات</h1>
-
-        <!-- نموذج البحث -->
-        <form action="{{ route('operation-doctors.search') }}" method="GET">
-            @csrf
-            <div class="row">
-                <div class="col">
-                    <label for="doctor_id">رقم الطبيب:</label>
-                    <input type="text" class="form-control" id="doctor_id" name="doctor_id">
-                </div>
-                <div class="col">
-                    <label for="operation_id">رقم العملية:</label>
-                    <input type="text" class="form-control" id="operation_id" name="operation_id">
-                </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-primary">بحث</button>
+        <form action="{{ route('operation-doctors.search') }}" method="GET" class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" id="doctor_id" name="doctor_id" placeholder="رقم الدكتور...">
+                <input type="text" class="form-control" id="operation_id" name="operation_id" placeholder="رقم العملية...">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">بحث</button>
                 </div>
             </div>
         </form>
+
 
         <!-- عرض العمليات -->
         <table class="table">

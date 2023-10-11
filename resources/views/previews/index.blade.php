@@ -2,46 +2,31 @@
 
     <div class="container">
         <h1>قائمة المعاينات</h1>
+        <form action="{{ route('previews.search') }}" method="GET" class="mb-3">
+            <div class="input-group">
 
-        <form action="{{ route('previews.search') }}" method="GET">
-            @csrf
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="patient_id">المريض:</label>
-                        <select class="form-control" id="patient_id" name="patient_id" required>
-                            @foreach($patients as $patient)
+                    <select class="form-control" id="patient_id" name="patient_id" required>
+                        @foreach($patients as $patient)
                             <option value="{{ $patient->id }}">{{ $patient->user->firstName }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+                        @endforeach
+                    </select>
 
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="doctor_id">الطبيب:</label>
-                        <select class="form-control" id="doctor_id" name="doctor_id" required>
-                            @foreach($doctors as $doctor)
+
+                    <select class="form-control" id="doctor_id" name="doctor_id" required>
+                        @foreach($doctors as $doctor)
                             <option value="{{ $doctor->id }}">{{ $doctor->user->firstName }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+                        @endforeach
+                    </select>
 
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="illness_id">نوع المرض:</label>
-                        <select class="form-control" id="illness_id" name="illness_id" required>
-                            @foreach($illnesses as $illness)
+                    <select class="form-control" id="illness_id" name="illness_id" required>
+                        @foreach($illnesses as $illness)
                             <option value="{{ $illness->id }}">{{ $illness->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                        @endforeach
+                    </select>
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">بحث</button>
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-primary">بحث</button>
         </form>
 
 

@@ -8,18 +8,15 @@
             {{ session('success') }}
         </div>
         @endif
-
-        <div class="row mb-3">
-            <div class="col-md-12">
-                <form action="{{ route('categories.search') }}" method="GET" class="form-inline">
-                    @csrf
-                    <div class="col-md-10 form-group mr-2">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="ابحث عن اسم الفئة">
-                    </div>
-                    <button type="submit" class="btn btn-primary col-md-2">بحث</button>
-                </form>
+        <form action="{{ route('categories.search') }}" method="GET" class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" name="name" placeholder="ابحث عن اسم الفئة">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">بحث</button>
+                </div>
             </div>
-        </div>
+        </form>
+
 
         <table class="table">
             <thead>
@@ -35,13 +32,12 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
                     <td>
-                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary">تحرير</a>
-                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-warning">عرض</a>
+                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">تحرير</a>
 
                         <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+                            <button type="submit" class="btn btn-danger">حذف</button>
                         </form>
                     </td>
                 </tr>

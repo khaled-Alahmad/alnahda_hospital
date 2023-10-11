@@ -2,13 +2,8 @@
     <div class="container">
         <h1>قائمة الأدوار</h1>
 
-        <form method="GET" action="{{ route('floors.search') }}" class="form-inline">
-            @csrf
-            <div class="form-group">
-                <input type="text" name="search" class="form-control" placeholder="ابحث عن رقم الطابق">
-            </div>
-            <button type="submit" class="btn btn-success mb-3">بحث</button>
-        </form>
+        <input type="text" id="search" name="search" class="form-control" placeholder="ابحث عن رقم الطابق">
+
         <table class="table">
             <thead>
                 <tr>
@@ -17,7 +12,7 @@
                     <th scope="col">خيارات</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="search-results">
                 @foreach($floors as $floor)
                 <tr>
                     <td>{{ $floor->numberOfFloor }}</td>
@@ -33,11 +28,31 @@
                     </td>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
-
-
     </div>
 
+    <script>
+        $(document).ready(function() {
+            // استجابة لتغييرات في حقل البحث بمجرد الكتابة
+            $('#search').on('', function() {
+                var searchTerm = $(this).val();
+                $.ajax({
+                    url: "{{ route('floors.search') }}",
+                    method: 'GET',
+                    data: {
+                        search: searchTerm
+                    },
+                    success: function(response) {
+                        // عرض النتائج في جدول النتائج
+                        $('#search-results').html(response);
+                    },
+                    error: function(xhr) {
+                        // معالجة الأخطاء إذا كان هناك خطأ في الطلب
+                        $('#search-results').html('<tr><td colspan="3">حدث خطأ أثناء البحث.</td></tr>');
+                    }
+                });
+            });
+        });
+    </script>
 </x-app-layout>

@@ -18,11 +18,19 @@
     <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    @notifyCss
 </head>
 
 <body>
+    @include('notify::components.notify')
     <div class="container-scroller">
+        @include('notify::components.notify')
+
         @include('layouts.components.navbar')
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
@@ -66,7 +74,34 @@
     <!-- Custom js for this page-->
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    @notifyJs
+    <!-- <script src="{{ asset('js/search/searchillness.js') }}"></script> -->
+    <script>
+        $(document).ready(function() {
+            // استجابة لتغييرات في حقل البحث
+            $('#search-illness').on('keyup', function() {
+                var searchTerm = $('#search-illness').val();
+                $.ajax({
+                    url: "{{ route('illnesses.search') }}",
+                    method: 'GET',
+                    data: {
+                        search: searchTerm
+                    },
+                    success: function(response) {
+                        // قم بمسح الصفوف الحالية في الجدول
+                        $('#search-results').empty();
+                        // إضافة النتائج الجديدة إلى جدول النتائج
+                        $('#search-results').html(response);
+                    },
+                    error: function(xhr) {
+                        // معالجة الأخطاء إذا كان هناك خطأ في الطلب
+                        $('#search-results').html('<tr><td colspan="3">حدث خطأ أثناء البحث.</td></tr>');
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

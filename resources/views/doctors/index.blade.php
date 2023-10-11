@@ -8,7 +8,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" name="search" placeholder="البحث عن طبيب">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit">بحث</button>
+                    <button class="btn btn-secondary" type="submit">بحث</button>
                 </div>
             </div>
         </form>

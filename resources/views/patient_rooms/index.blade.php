@@ -3,7 +3,14 @@
     <div class="container">
         <h1>قائمة الحجوزات</h1>
 
-
+        <form action="{{ route('patient-rooms.search') }}" method="GET" class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" placeholder="البحث عن مريض في غرفة">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">بحث</button>
+                </div>
+            </div>
+        </form>
         <table class="table">
             <thead>
                 <tr>

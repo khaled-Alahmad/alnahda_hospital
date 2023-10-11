@@ -25,22 +25,18 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles=Role::all();
+        $roles = Role::all();
         return view('users.create', compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        $request->validate([
+        // dd($request->input('password'));
+        $validator = $request->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            
+            'age' => 'required',
             'father' => 'required',
             'mother' => 'required',
             'phone' => 'required',
@@ -50,19 +46,20 @@ class UserController extends Controller
             'gender' => 'required',
         ]);
 
-        $user = new User([
-            'firstName' => $request->get('firstName'),
-            'lastName' => $request->get('lastName'),
-            'father' => $request->get('father'),
-            'mother' => $request->get('mother'),
-            'phone' => $request->get('phone'),
-            'address' => $request->get('address'),
-            'email' => $request->get('email'),
-            'password' => bcrypt($request->get('password')),
-            'gender' => $request->get('gender'),
+        User::create([
+            'firstName' => $request->input('firstName'),
+            'lastName' => $request->input('lastName'),
+            'father' => $request->input('father'),
+            'age' => $request->input('age'),
+
+            'mother' => $request->input('mother'),
+            'phone' => $request->input('phone'),
+            'address' => $request->input('address'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'gender' => $request->input('gender'),
         ]);
 
-        $user->save();
 
         return redirect('/users')->with('success', 'User has been added');
     }
@@ -87,8 +84,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $roles = Role::all();
+
         $user = User::find($id);
-        return view('users.edit', compact('user'));
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -103,29 +102,29 @@ class UserController extends Controller
         $request->validate([
             'firstName' => 'required',
             'lastName' => 'required',
+            'age' => 'required',
             'father' => 'required',
             'mother' => 'required',
-            'age' => 'required',
-
             'phone' => 'required',
             'address' => 'required',
-            'email' => 'required|email|unique:users,email,' . $id,
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'gender' => 'required',
         ]);
-            $user = User::find($id);
-            $user->firstName = $request->get('firstName');
-            $user->lastName = $request->get('lastName');
-            $user->father = $request->get('father');
-            $user->mother = $request->get('mother');
-            $user->phone = $request->get('phone');
-            $user->age = $request->get('age');
+        $user = User::find($id);
+        $user->update([
+            'firstName' => $request->input('firstName'),
+            'lastName' => $request->input('lastName'),
+            'father' => $request->input('father'),
+            'age' => $request->input('age'),
 
-            $user->address = $request->get('address');
-            $user->email = $request->get('email');
-            $user->password = bcrypt($request->get('password'));
-            $user->gender = $request->get('gender');
-            $user->save();
+            'mother' => $request->input('mother'),
+            'phone' => $request->input('phone'),
+            'address' => $request->input('address'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'gender' => $request->input('gender'),
+        ]);
 
         return redirect('/users')->with('success', 'User has been updated');
     }
@@ -142,5 +141,8 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('/users')->with('success', 'User has been deleted');
+    }
+    public  function  search(){
+        return view('users.index');
     }
 }
