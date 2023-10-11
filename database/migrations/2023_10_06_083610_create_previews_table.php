@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('illness_id')->constrained()->cascadeOnDelete();
             $table->enum('status', ['حجز', 'تمت المعاينة', 'قيد المعالجة']);
             $table->dateTime('preview_datetime');
 

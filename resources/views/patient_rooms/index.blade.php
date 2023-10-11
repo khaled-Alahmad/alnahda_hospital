@@ -31,6 +31,7 @@
                     <td>{{ $patientRoom->from }}</td>
                     <td>{{ $patientRoom->to }}</td>
                     <td>
+                        @can('isAdmin')
                         <a href="{{ route('patient-rooms.show', $patientRoom->id) }}" class="btn btn-primary">عرض</a>
                         <a href="{{ route('patient-rooms.edit', $patientRoom->id) }}" class="btn btn-warning">تحرير</a>
                         <form action="{{ route('patient-rooms.destroy', $patientRoom->id) }}" method="POST" style="display: inline-block;">
@@ -38,6 +39,19 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الحجز؟')">حذف</button>
                         </form>
+                        @endcan
+                        @can('isDoctor')
+                        <a href="{{ route('patient-rooms.show', $patientRoom->id) }}" class="btn btn-primary">عرض</a>
+                        <a href="{{ route('patient-rooms.edit', $patientRoom->id) }}" class="btn btn-warning">تحرير</a>
+                        <form action="{{ route('patient-rooms.destroy', $patientRoom->id) }}" method="POST" style="display: inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الحجز؟')">حذف</button>
+                        </form>
+                        @endcan
+                        @can('isPatient')
+                        ليس لديك صلاحية لأي إجراء
+                        @endcan
                     </td>
                 </tr>
                 @endforeach

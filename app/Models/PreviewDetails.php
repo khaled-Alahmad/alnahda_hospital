@@ -17,4 +17,8 @@ class PreviewDetails extends Model
     {
         return $this->belongsTo(Medicine::class);
     }
+    public function illness()
+    {
+        return $this->belongsTo(Illness::class);
+    }
 }

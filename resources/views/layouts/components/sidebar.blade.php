@@ -1,7 +1,9 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="position-fixed custom-scroll" style="height: 100vh;">
         <ul class="nav">
+
             @can('isAdmin')
+
 
 
             <li class="nav-item">
@@ -81,7 +83,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-expanded="false" href="{{route('doctors.create')}}">
+                            <a class="nav-link" aria-expanded="false" href="{{route('patients.create')}}">
                                 مريض جديد
                             </a>
                         </li>
@@ -319,11 +321,29 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#reports" aria-expanded="false" aria-controls="reports">
+                    <i class="fa-solid fa-user menu-icon"></i>
+                    <span class="menu-title"> التقارير</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="reports">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('patient.report')}}">
+                                تقارير مريض </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('doctor.report')}}">
+                                تقارير دكتور </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             @endcan
 
             <!-- doctor -->
             @can('isDoctor')
-
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}">
@@ -366,30 +386,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-expanded="false" href="{{route('doctors.create')}}">
+                            <a class="nav-link" aria-expanded="false" href="{{route('patients.create')}}">
                                 مريض جديد
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#doctor-departments" aria-expanded="false" aria-controls="doctor-departments">
-                    <i class="fa-regular fa-building  menu-icon"></i>
-                    <span class="menu-title">أقسام الأطباء</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="doctor-departments">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('doctor-departments.index')}}">
-                                قائمة أقسام الأطباء
-                            </a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#patient-rooms" aria-expanded="false" aria-controls="#patient-rooms">
                     <i class="fa-solid fa-person-booth menu-icon"></i>
@@ -531,28 +535,11 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
-                    <i class="fa-solid fa-user menu-icon"></i>
-                    <span class="menu-title"> المستخدمين</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="users">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('users.index')}}">
-                                قائمة المستخدمين
-                            </a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
             @endcan
             <!-- patient -->
 
             @can('isPatient')
-
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}">
@@ -660,23 +647,7 @@
             </li>
 
 
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
-                    <i class="fa-solid fa-user menu-icon"></i>
-                    <span class="menu-title"> المستخدمين</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="users">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('users.index')}}">
-                                قائمة المستخدمين
-                            </a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
 
             @endcan
         </ul>

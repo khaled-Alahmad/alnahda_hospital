@@ -17,6 +17,11 @@ class CategoryController extends Controller
     {
         return view('categories.create');
     }
+    public function show($id)
+    {
+        $category = Category::find($id);
+        return view('categories.show', compact('category'));
+    }
 
     public function store(Request $request)
     {
@@ -27,6 +32,7 @@ class CategoryController extends Controller
         Category::create([
             'name' => $request->input('name'),
         ]);
+        notify()->success('تمت إضافة الفئة بنجاح');
 
         return redirect()->route('categories.index')
             ->with('success', 'تمت إضافة الفئة بنجاح');
@@ -47,6 +53,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->name = $request->input('name');
         $category->save();
+        notify()->success('تم تحديث الفئة بنجاح');
 
         return redirect()->route('categories.index')
             ->with('success', 'تم تحديث الفئة بنجاح');
@@ -56,6 +63,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+        notify()->success('تم حذف الفئة بنجاح');
 
         return redirect()->route('categories.index')
             ->with('success', 'تم حذف الفئة بنجاح');

@@ -12,6 +12,14 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="illness_id">نوع المرض:</label>
+                <select class="form-control" id="illness_id" name="illness_id" required>
+                    @foreach($illnesses as $illness)
+                    <option value="{{ $illness->id }}">{{ $illness->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="medicine_id">رقم الدواء:</label>
                 <select class="form-control" id="medicine_id" name="medicine_id" required>
                     @foreach($medicines as $medicine)

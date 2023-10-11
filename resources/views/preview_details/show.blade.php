@@ -20,6 +20,11 @@
                     <td>تاريخ الإنشاء:</td>
                     <td>{{ $previewDetail->created_at }}</td>
                 </tr>
+                <tr>
+                    <td>نوع المرض:</td>
+                    <td>{{ $preview->illness->name }}</td>
+                </tr>
+
             </tbody>
         </table>
         <a href="{{ route('preview-details.index') }}" class="btn btn-primary">العودة إلى القائمة</a>

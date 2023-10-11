@@ -23,8 +23,9 @@
                 @foreach ($patients as $patient)
                 <tr>
                     <td>{{ $patient->id }}</td>
-                    <td>{{ $patient->user_id }}</td>
+                    <td>{{ $patient->user->firstName.' '.$patient->user->lastName }}</td>
                     <td>
+                        @can('isAdmin')
                         <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-info">عرض</a>
                         <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-warning">تعديل</a>
                         <form action="{{ route('patients.destroy', $patient->id) }}" method="POST" style="display: inline;">
@@ -32,6 +33,19 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد؟')">حذف</button>
                         </form>
+                        @endcan
+                        @can('isDoctor')
+                        <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-info">عرض</a>
+                        <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-warning">تعديل</a>
+                        <form action="{{ route('patients.destroy', $patient->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد؟')">حذف</button>
+                        </form>
+                        @endcan
+                        @can('isPatient')
+                        ليس لديك صلاحية لأي إجراء
+                        @endcan
                     </td>
                 </tr>
                 @endforeach

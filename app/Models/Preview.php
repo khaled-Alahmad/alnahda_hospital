@@ -18,10 +18,7 @@ class Preview extends Model
     {
         return $this->belongsTo(Doctor::class);
     }
-    public function illness()
-    {
-        return $this->belongsTo(Illness::class);
-    }
+
     public function preview_details()
     {
         return $this->hasMany(PreviewDetails::class);

@@ -24,14 +24,28 @@
 
 
     @notifyCss
+    <style>
+        .notif {
+            position: fixed;
+            /* يجعل العنصر مثبتًا في مكانه بغض النظر عن التمرير */
+            z-index: 99999;
+            /* يجعل العنصر يظهر فوق جميع العناصر الأخرى */
+            top: 0;
+            /* يثبت العنصر في الجزء العلوي من الصفحة */
+            left: 0;
+            /* يثبت العنصر في الجزء الأيسر من الصفحة */
+            /* إضافة أي أنماط أخرى حسب الحاجة */
+        }
+    </style>
 </head>
 
 <body>
-    @include('notify::components.notify')
+    <div class="notif"> @include('notify::components.notify')
+    </div>
     <div class="container-scroller">
-        @include('notify::components.notify')
 
         @include('layouts.components.navbar')
+
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_settings-panel.html -->
@@ -41,6 +55,8 @@
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
+
+
                     {{ $slot }}
 
                 </div>
@@ -75,32 +91,7 @@
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
     @notifyJs
-    <!-- <script src="{{ asset('js/search/searchillness.js') }}"></script> -->
-    <script>
-        $(document).ready(function() {
-            // استجابة لتغييرات في حقل البحث
-            $('#search-illness').on('keyup', function() {
-                var searchTerm = $('#search-illness').val();
-                $.ajax({
-                    url: "{{ route('illnesses.search') }}",
-                    method: 'GET',
-                    data: {
-                        search: searchTerm
-                    },
-                    success: function(response) {
-                        // قم بمسح الصفوف الحالية في الجدول
-                        $('#search-results').empty();
-                        // إضافة النتائج الجديدة إلى جدول النتائج
-                        $('#search-results').html(response);
-                    },
-                    error: function(xhr) {
-                        // معالجة الأخطاء إذا كان هناك خطأ في الطلب
-                        $('#search-results').html('<tr><td colspan="3">حدث خطأ أثناء البحث.</td></tr>');
-                    }
-                });
-            });
-        });
-    </script>
+
 
 </body>
 

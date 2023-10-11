@@ -9,6 +9,7 @@ class FloorController extends Controller
 {
     public function index()
     {
+
         $floors = Floor::all();
         return view('floors.index', compact('floors'));
     }
@@ -29,8 +30,9 @@ class FloorController extends Controller
         $floor->numberOfFloor = $validatedData['numberOfFloor'];
         $floor->numberOfRooms = $validatedData['numberOfRooms'];
         $floor->save();
+        notify()->success('تمت إضافة الطابق بنجاح.');
 
-        return redirect()->route('floors.index')->with('success', 'تمت إضافة الطابق بنجاح');
+        return redirect()->route('floors.index');
     }
     public function show($id)
     {
@@ -55,6 +57,7 @@ class FloorController extends Controller
         $floor->numberOfFloor = $validatedData['numberOfFloor'];
         $floor->numberOfRooms = $validatedData['numberOfRooms'];
         $floor->save();
+        notify()->success('تمت تعديل الطابق بنجاح.');
 
         return redirect()->route('floors.index')->with('success', 'تم تحديث الطابق بنجاح');
     }
@@ -64,6 +67,7 @@ class FloorController extends Controller
     {
         $floor = Floor::find($id);
         $floor->delete();
+        notify()->success('تمت حذف الطابق بنجاح.');
 
         return redirect()->route('floors.index')->with('success', 'تم حذف الطابق بنجاح');
     }

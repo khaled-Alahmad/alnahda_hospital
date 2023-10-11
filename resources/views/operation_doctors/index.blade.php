@@ -17,7 +17,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">رقم الطبيب</th>
+                    <th scope="col"> الطبيب</th>
                     <th scope="col">رقم العملية</th>
                     <th scope="col">الإجراءات</th>
                 </tr>
@@ -26,7 +26,7 @@
                 @foreach ($operationDoctors as $operationDoctor)
                 <tr>
                     <td>{{ $operationDoctor->id }}</td>
-                    <td>{{ $operationDoctor->doctor_id }}</td>
+                    <td>{{ $operationDoctor->doctor->user->firstName.' '.$operationDoctor->doctor->user->lastName }}</td>
                     <td>{{ $operationDoctor->operation_id }}</td>
                     <td>
                         <a href="{{ route('operation-doctors.show', $operationDoctor->id) }}" class="btn btn-primary">عرض</a>

@@ -13,11 +13,10 @@ class PreviewController extends Controller
     public function index()
     {
         $previews = Preview::all();
-        $illnesses = Illness::all();
         $doctors = Doctor::all();
         $patients = Patient::all();
 
-        return view('previews.index', compact('previews', 'illnesses', 'doctors', 'patients'));
+        return view('previews.index', compact('previews', 'doctors', 'patients'));
     }
 
     public function create()
@@ -26,7 +25,7 @@ class PreviewController extends Controller
         $doctors = Doctor::all();
         $patients = Patient::all();
 
-        return view('previews.create',compact( 'illnesses', 'doctors', 'patients'));
+        return view('previews.create', compact('illnesses', 'doctors', 'patients'));
     }
 
     public function store(Request $request)
@@ -35,13 +34,13 @@ class PreviewController extends Controller
         $request->validate([
             'patient_id' => 'required',
             'doctor_id' => 'required',
-            'illness_id' => 'required',
-            'type' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
+            'status' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
             'preview_datetime' => 'required',
         ]);
-        
+
         // Create a new preview
         Preview::create($request->all());
+        notify()->success('تمت إضافة المعاينة بنجاح.');
 
         return redirect()->route('previews.index')->with('success', 'تمت إضافة المعاينة بنجاح.');
     }
@@ -64,14 +63,14 @@ class PreviewController extends Controller
         $request->validate([
             'patient_id' => 'required',
             'doctor_id' => 'required',
-            'illness_id' => 'required',
-            'type' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
+            'status' => 'required|in:حجز,تمت المعاينة,قيد المعالجة',
             'preview_datetime' => 'required|date',
         ]);
 
         // Update the preview
         $preview = Preview::findOrFail($id);
         $preview->update($request->all());
+        notify()->success('تم تحديث المعاينة بنجاح.');
 
         return redirect()->route('previews.index')->with('success', 'تم تحديث المعاينة بنجاح.');
     }
@@ -80,6 +79,7 @@ class PreviewController extends Controller
     {
         $preview = Preview::findOrFail($id);
         $preview->delete();
+        notify()->success('تم حذف المعاينة بنجاح.');
 
         return redirect()->route('previews.index')->with('success', 'تم حذف المعاينة بنجاح.');
     }

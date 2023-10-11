@@ -22,6 +22,6 @@ class isDoctor
         }
         notify()->error('ليس لديك صلاحيات');
 
-        return redirect('/');
+        return redirect()->route('dashboard');
     }
 }

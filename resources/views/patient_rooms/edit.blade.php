@@ -10,7 +10,7 @@
                 <label for="patient_id">المريض:</label>
                 <select class="form-control" id="patient_id" name="patient_id" required>
                     @foreach($patients as $patient)
-                    <option value="{{ $patient->id }}" {{ $patient->id == $patientRoom->patient_id ? 'selected' : '' }}>{{ $patient->user->name }}</option>
+                    <option value="{{ $patient->id }}" {{ $patient->id == $patientRoom->patient_id ? 'selected' : '' }}>{{ $patient->user->firstName.' '.$patient->user->lastName }}</option>
                     @endforeach
                 </select>
             </div>
@@ -18,7 +18,7 @@
                 <label for="room_id">الغرفة:</label>
                 <select class="form-control" id="room_id" name="room_id" required>
                     @foreach($rooms as $room)
-                    <option value="{{ $room->id }}" {{ $room->id == $patientRoom->room_id ? 'selected' : '' }}>{{ $room->name }}</option>
+                    <option value="{{ $room->id }}" {{ $room->id == $patientRoom->room_id ? 'selected' : '' }}>{{ $room->id }}</option>
                     @endforeach
                 </select>
             </div>

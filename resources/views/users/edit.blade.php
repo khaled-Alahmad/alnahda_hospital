@@ -38,6 +38,10 @@
                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
             </div>
             <div class="form-group">
+                <label for="email"> كلمة المرور</label>
+                <input type="password" class="form-control" id="password" name="password" value="{{ $user->password }}" required>
+            </div>
+            <div class="form-group">
                 <label for="gender">الجنس</label>
                 <select class="form-control" id="gender" name="gender" required>
                     <option value="ذكر" {{ $user->gender === 'ذكر' ? 'selected' : '' }}>ذكر</option>

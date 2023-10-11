@@ -25,7 +25,7 @@ class Operation extends Model
     {
         return $this->belongsTo(Preview::class);
     }
-    public function operationDoctor()
+    public function operationDoctors()
     {
         return $this->hasMany(OperationDoctor::class);
     }

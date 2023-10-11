@@ -34,6 +34,7 @@
                     <td>{{ $medicine->brand->name }}</td>
                     <td>{{ $medicine->price }}</td>
                     <td>
+                        @can('isAdmin')
                         <a href="{{ route('medicines.show', $medicine->id) }}" class="btn btn-primary">عرض</a>
                         <a href="{{ route('medicines.edit', $medicine->id) }}" class="btn btn-warning">تحرير</a>
                         <form action="{{ route('medicines.destroy', $medicine->id) }}" method="POST" class="d-inline">
@@ -41,6 +42,19 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من حذف هذا الدواء؟')">حذف</button>
                         </form>
+                        @endcan
+                        @can('isDoctor')
+                        <a href="{{ route('medicines.show', $medicine->id) }}" class="btn btn-primary">عرض</a>
+                        <a href="{{ route('medicines.edit', $medicine->id) }}" class="btn btn-warning">تحرير</a>
+                        <form action="{{ route('medicines.destroy', $medicine->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من حذف هذا الدواء؟')">حذف</button>
+                        </form>
+                        @endcan
+                        @can('isPatient')
+                        ليس لديك صلاحية لأي إجراء
+                        @endcan
                     </td>
                 </tr>
                 @endforeach

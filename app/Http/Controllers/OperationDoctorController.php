@@ -33,6 +33,7 @@ class OperationDoctorController extends Controller
             'doctor_id' => $request->input('doctor_id'),
             'operation_id' => $request->input('operation_id'),
         ]);
+        notify()->success('تم اضافة الدكتور الى العملية بنجاح');
 
         return redirect()->route('operation-doctors.index')
             ->with('success', 'تم إنشاء سجل العملية بنجاح');
@@ -65,6 +66,7 @@ class OperationDoctorController extends Controller
             'doctor_id' => $request->input('doctor_id'),
             'operation_id' => $request->input('operation_id'),
         ]);
+        notify()->success('تم تعديل دكتور  العملية بنجاح');
 
         return redirect()->route('operation-doctors.index')
             ->with('success', 'تم تحديث سجل العملية بنجاح');
@@ -74,6 +76,7 @@ class OperationDoctorController extends Controller
     {
         $operationDoctor = OperationDoctor::findOrFail($id);
         $operationDoctor->delete();
+        notify()->success('تم حذف دكتور من العملية بنجاح');
 
         return redirect()->route('operation-doctors.index')
             ->with('success', 'تم حذف سجل العملية بنجاح');

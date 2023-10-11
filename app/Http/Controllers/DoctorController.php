@@ -35,6 +35,7 @@ class DoctorController extends Controller
             'doctor_department_id' => $request->input('doctor_department_id'),
             'specialist' => $request->input('specialist'),
         ]);
+        notify()->success('تمت إضافة الطبيب بنجاح');
 
         return redirect()->route('doctors.index')
             ->with('success', 'تمت إضافة الطبيب بنجاح');
@@ -48,8 +49,10 @@ class DoctorController extends Controller
 
     public function edit($id)
     {
+        $users = User::all();
+        $doctorDepartments  = DoctorDepartment::all();
         $doctor = Doctor::find($id);
-        return view('doctors.edit', compact('doctor'));
+        return view('doctors.edit', compact('doctor', 'users', 'doctorDepartments'));
     }
 
     public function update(Request $request, $id)
@@ -66,6 +69,7 @@ class DoctorController extends Controller
             'doctor_department_id' => $request->input('doctor_department_id'),
             'specialist' => $request->input('specialist'),
         ]);
+        notify()->success('تم تحديث بيانات الطبيب بنجاح');
 
         return redirect()->route('doctors.index')
             ->with('success', 'تم تحديث بيانات الطبيب بنجاح');
@@ -75,6 +79,7 @@ class DoctorController extends Controller
     {
         $doctor = Doctor::find($id);
         $doctor->delete();
+        notify()->success('تم حذف الطبيب بنجاح');
 
         return redirect()->route('doctors.index')
             ->with('success', 'تم حذف الطبيب بنجاح');
