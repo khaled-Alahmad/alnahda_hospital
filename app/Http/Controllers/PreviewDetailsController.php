@@ -12,16 +12,60 @@ class PreviewDetailsController extends Controller
 {
     public function index()
     {
-        $previewDetails = PreviewDetails::all();
+        $user = auth()->user();
+
+
+        if ($user->role->role == "patient") {
+            $patient = $user->patients->first();
+
+            if ($patient) {
+                $preview = $patient->previews->first();
+
+                if ($preview) {
+                    $previewDetails = $preview->preview_details;
+                } else {
+                    $previewDetails = [];
+                }
+            } else {
+                $previewDetails = [];
+            }
+        } elseif ($user->role->role == "doctor") {
+            $doctor = $user->doctors->first();
+
+            if ($doctor) {
+                $preview = $doctor->preview->first();
+
+                if ($preview) {
+                    $previewDetails = $preview->preview_details;
+                } else {
+                    $previewDetails = [];
+                }
+            } else {
+                $previewDetails = [];
+            }
+        } else {
+            $previewDetails = PreviewDetails::all();
+        }
+
         return view('preview_details.index', compact('previewDetails'));
     }
 
     public function create()
     {
+        $user = auth()->user();
+
         $illnesses = Illness::all();
 
         $medicines = Medicine::all();
-        $previews = Preview::all();
+        if ($user->role->role == "doctor") {
+            $doctor = $user->doctors->first();
+            if ($doctor) {
+                $previews = $doctor->preview;
+            }
+        } else {
+            $previews = Preview::all();
+        }
+
         // عرض نموذج إنشاء السجل
         return view('preview_details.create', compact('medicines', 'previews', 'illnesses'));
     }

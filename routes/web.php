@@ -115,10 +115,10 @@ Route::middleware('auth')->group(function () {
     Route::get('illnesses_search', [IllnessController::class, 'search'])->name('illnesses.search')->middleware(['CheckUserAccessAdminDoctor']);;
 
     Route::get('previews', [PreviewController::class, 'index'])->name('previews.index')->middleware(['CheckUserAccess']);
-    Route::get('previews_create', [PreviewController::class, 'create'])->name('previews.create')->middleware(['CheckUserAccessAdminDoctor']);
+    Route::get('previews_create', [PreviewController::class, 'create'])->name('previews.create')->middleware(['CheckUserAccess']);
     Route::get('previews_{id}_edit', [PreviewController::class, 'edit'])->name('previews.edit')->middleware(['CheckUserAccessAdminDoctor']);;
     Route::get('previews_{id}', [PreviewController::class, 'show'])->name('previews.show')->middleware(['CheckUserAccessAdminDoctor']);;
-    Route::post('previews', [PreviewController::class, 'store'])->name('previews.store')->middleware(['CheckUserAccessAdminDoctor']);;
+    Route::post('previews', [PreviewController::class, 'store'])->name('previews.store')->middleware(['CheckUserAccess']);;
     Route::put('previews_{id}', [PreviewController::class, 'update'])->name('previews.update')->middleware(['CheckUserAccessAdminDoctor']);;
     Route::delete('previews_{id}', [PreviewController::class, 'destroy'])->name('previews.destroy')->middleware(['CheckUserAccessAdminDoctor']);;
     Route::get('previews_search', [PreviewController::class, 'search'])->name('previews.search')->middleware(['CheckUserAccess']);

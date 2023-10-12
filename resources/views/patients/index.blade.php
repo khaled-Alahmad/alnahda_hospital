@@ -35,13 +35,8 @@
                         </form>
                         @endcan
                         @can('isDoctor')
-                        <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-info">عرض</a>
-                        <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-warning">تعديل</a>
-                        <form action="{{ route('patients.destroy', $patient->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد؟')">حذف</button>
-                        </form>
+                        ليس لديك صلاحية لأي إجراء
+
                         @endcan
                         @can('isPatient')
                         ليس لديك صلاحية لأي إجراء

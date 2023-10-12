@@ -13,17 +13,31 @@ class OperationController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
 
-
-        $operations = Operation::all();
+        if ($user->role->role == "doctor") {
+            $doctor = $user->doctors->first();
+            $operations = $doctor->operations;
+        } else {
+            $operations = Operation::all();
+        }
         return view('operations.index', compact('operations'));
     }
 
     public function create()
     {
+        $user = auth()->user();
+
+        if ($user->role->role == "doctor") {
+            $doctor = $user->doctors->first();
+            if ($doctor) {
+                $previews = $doctor->preview;
+            }
+        } else {
+            $previews = Preview::all();
+        }
         $doctors = Doctor::all();
         $patients = Patient::all();
-        $previews = Preview::all();
         $rooms = Room::all();
         // إنشاء عملية جديدة
         return view('operations.create', compact('doctors', 'patients', 'previews', 'rooms'));

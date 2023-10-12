@@ -12,7 +12,18 @@ class PreviewController extends Controller
 {
     public function index()
     {
-        $previews = Preview::all();
+        $user = auth()->user();
+
+
+        if ($user->role->role == "patient") {
+            $patient = $user->patients->first();
+            $previews = $patient->previews;
+        } elseif ($user->role->role == "doctor") {
+            $doctor = $user->doctors->first();
+            $previews = $doctor->preview;
+        } else {
+            $previews = Preview::all();
+        }
         $doctors = Doctor::all();
         $patients = Patient::all();
 
@@ -53,8 +64,10 @@ class PreviewController extends Controller
 
     public function edit($id)
     {
+        $doctors = Doctor::all();
+        $patients = Patient::all();
         $preview = Preview::findOrFail($id);
-        return view('previews.edit', compact('preview'));
+        return view('previews.edit', compact('preview', 'patients', 'doctors'));
     }
 
     public function update(Request $request, $id)

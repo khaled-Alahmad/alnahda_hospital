@@ -11,14 +11,28 @@ class OperationDoctorController extends Controller
 {
     public function index()
     {
-        $operationDoctors = OperationDoctor::all();
+        $user = auth()->user();
+
+        if ($user->role->role == "doctor") {
+            $doctor = $user->doctors->first();
+            $operationDoctors = $doctor->operationDoctor;
+        } else {
+            $operationDoctors = OperationDoctor::all();
+        }
         return view('operation_doctors.index', compact('operationDoctors'));
     }
 
     public function create()
     {
+        $user = auth()->user();
+
+        if ($user->role->role == "doctor") {
+            $doctor = $user->doctors->first();
+            $operations = $doctor->operations;
+        } else {
+            $operations = Operation::all();
+        }
         $doctors = Doctor::all();
-        $operations = Operation::all();
         return view('operation_doctors.create', compact('doctors', 'operations'));
     }
 

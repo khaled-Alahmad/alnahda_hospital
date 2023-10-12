@@ -16,7 +16,12 @@ class PatientController extends Controller
 
     public function create()
     {
-        $users = User::whereDoesntHave('doctors')->whereDoesntHave('patients')->get();
+        $users = User::whereDoesntHave('doctors')
+            ->whereDoesntHave('patients')
+            ->whereHas('role', function ($query) {
+                $query->where('role', '!=', 'admin');
+            })
+            ->get();
         return view('patients.create', compact('users'));
     }
 

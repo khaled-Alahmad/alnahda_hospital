@@ -12,12 +12,21 @@ class PatientRoomController extends Controller
 {
     public function index()
     {
-        $patientRooms = PatientRoom::all();
+        $user = auth()->user();
+
+
+        if ($user->role->role == "patient") {
+            $patient = $user->patients->first();
+            $patientRooms = $patient->patientRoom;
+        } else {
+            $patientRooms = PatientRoom::all();
+        }
         return view('patient_rooms.index', compact('patientRooms'));
     }
 
     public function create()
     {
+
         $patients = Patient::all();
         $rooms = Room::all();
 
