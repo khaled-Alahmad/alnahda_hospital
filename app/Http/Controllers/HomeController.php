@@ -29,6 +29,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function welcome()
+    {
+        $doctors = Doctor::all();
+        return view('welcome', compact('doctors'));
+    }
     public function dashboard()
     {
         $countDoctor = Doctor::count();

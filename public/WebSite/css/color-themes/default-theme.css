@@ -97,7 +97,7 @@ a,
 .order-box ul li span,
 .news-detail .inner-box .lower-content .text blockquote .quote-box .icon,
 .portfolio-page-section .filters .filter:hover{
-	color:#004cda;
+	color:#025c11;
 }
 
 /*Background Color*/
@@ -286,11 +286,11 @@ a,
 /*RGBA Color Dark*/
 
 @media only screen and (max-width: 767px){
-	
+
 	.main-menu .navbar-header .navbar-toggle{
 		border-color:#ffffff;
 	}
-	
+
 	.main-menu .navbar-header .navbar-toggle,
 	.main-menu .navbar-collapse > .navigation,
 	.main-menu .navbar-collapse > .navigation > li > ul,
@@ -309,5 +309,5 @@ a,
 	.header-style-two.inner-header .main-menu .navigation > li > a{
 		background-color:#004cda;
 	}
-	
+
 }
