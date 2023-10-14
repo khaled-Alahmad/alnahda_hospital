@@ -34,7 +34,6 @@
                                 <tr>
                                     <th>اسم الدكتور</th>
                                     <th>التاريخ</th>
-                                    <th>المرض</th>
                                     <th>الحالة</th>
 
                                 </tr>
@@ -44,7 +43,6 @@
                                 <tr>
                                     <td>{{ $appointment->doctor->user->firstName.' '.$appointment->doctor->user->lastName }}</td>
                                     <td>{{ $appointment->preview_datetime }}</td>
-                                    <td>{{ $appointment->illness->name }}</td>
                                     <td>{{ $appointment->status }}</td>
 
                                 </tr>

@@ -32,7 +32,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [HomeController::class, 'welcome']);
+Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
