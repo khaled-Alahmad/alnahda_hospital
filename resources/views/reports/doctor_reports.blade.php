@@ -33,7 +33,6 @@
                                 <tr>
                                     <th>اسم المريض</th>
                                     <th>التاريخ</th>
-                                    <th>المرض</th>
                                     <th>الحالة</th>
 
                                 </tr>
@@ -43,7 +42,6 @@
                                 <tr>
                                     <td>{{ $preview->patient->user->firstName.' '.$preview->patient->user->lastName }}</td>
                                     <td>{{ $preview->preview_datetime }}</td>
-                                    <td>{{ $preview->illness->name }}</td>
                                     <td>{{ $preview->status }}</td>
 
                                 </tr>
